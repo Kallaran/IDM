@@ -50,12 +50,12 @@ public interface Load extends Command
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Path</em>' containment reference.
-   * @see #setPath(Path)
+   * @see #setPath(Type)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLoad_Path()
    * @model containment="true"
    * @generated
    */
-  Path getPath();
+  Type getPath();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface Load extends Command
    * @see #getPath()
    * @generated
    */
-  void setPath(Path value);
+  void setPath(Type value);
 
 } // Load

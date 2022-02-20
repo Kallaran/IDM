@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.generator;
 
 import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -106,19 +107,31 @@ public class MyDslGenerator extends AbstractGenerator {
   }
   
   private CharSequence compile(final Create c) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = c.getPath().getName();
-    _builder.append(_name);
-    _builder.append(" = pd.DataFrame([[\'Sacramento\', \'California\'], [\'Miami\', \'Florida\']], columns=[\'City\', \'State\'])");
-    _builder.newLineIfNotEmpty();
-    String _name_1 = c.getPath().getName();
-    _builder.append(_name_1);
-    _builder.append(".to_csv(\'");
-    String _name_2 = c.getPath().getName();
-    _builder.append(_name_2);
-    _builder.append(".csv\', index=False)");
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    CharSequence _xblockexpression = null;
+    {
+      String str = "";
+      EList<String> _columns = c.getColumns();
+      for (final String col : _columns) {
+        String _str = str;
+        str = (_str + (("\'" + col) + "\', "));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = c.getPath().getName();
+      _builder.append(_name);
+      _builder.append(" = pd.DataFrame([[\'Sacramento\', \'California\'], [\'Miami\', \'Florida\']], columns=[");
+      _builder.append(str);
+      _builder.append("])");
+      _builder.newLineIfNotEmpty();
+      String _name_1 = c.getPath().getName();
+      _builder.append(_name_1);
+      _builder.append(".to_csv(\'");
+      String _name_2 = c.getPath().getName();
+      _builder.append(_name_2);
+      _builder.append(".csv\', index=False)");
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
   
   private CharSequence compile(final Head l) {

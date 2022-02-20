@@ -66,8 +66,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.MODEL: return createModel();
-      case MyDslPackage.PATH: return createPath();
-      case MyDslPackage.ARRAY: return createArray();
+      case MyDslPackage.TYPE: return createType();
       case MyDslPackage.COMMAND: return createCommand();
       case MyDslPackage.CREATE: return createCreate();
       case MyDslPackage.LOAD: return createLoad();
@@ -96,22 +95,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Path createPath()
+  public Type createType()
   {
-    PathImpl path = new PathImpl();
-    return path;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Array createArray()
-  {
-    ArrayImpl array = new ArrayImpl();
-    return array;
+    TypeImpl type = new TypeImpl();
+    return type;
   }
 
   /**

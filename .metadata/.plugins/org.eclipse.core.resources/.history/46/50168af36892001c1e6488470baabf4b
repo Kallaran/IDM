@@ -1,0 +1,30 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Model:
+	commands+=Command*;
+
+String:
+	name=STRING;
+
+Array:
+	(elements+=STRING)*;
+	
+	
+Command:
+	Create | Load | Print | Head;
+	
+Create:
+	'CREATE'  path=String ':' colums=Array;
+
+Load:
+	'LOAD' name=ID '=' path=String ;
+	
+Print:
+	'PRINT' name=ID ;
+
+Head:
+	'HEAD' name=ID ;
+
+

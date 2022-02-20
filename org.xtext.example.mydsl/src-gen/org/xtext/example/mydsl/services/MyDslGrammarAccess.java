@@ -37,12 +37,12 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Command
 		public RuleCall getCommandsCommandParserRuleCall_0() { return cCommandsCommandParserRuleCall_0; }
 	}
-	public class PathElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Path");
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Type");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
-		//Path:
+		//Type:
 		//    name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -51,21 +51,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
-	}
-	public class ArrayElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Array");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsSTRINGTerminalRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
-		
-		//Array:
-		//    (elements+=STRING)*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(elements+=STRING)*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
-		
-		//STRING
-		public RuleCall getElementsSTRINGTerminalRuleCall_0() { return cElementsSTRINGTerminalRuleCall_0; }
 	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Command");
@@ -99,35 +84,43 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCREATEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathPathParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
+		private final RuleCall cPathTypeParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cColumsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cColumsArrayParserRuleCall_3_0 = (RuleCall)cColumsAssignment_3.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cColumnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cColumnsSTRINGTerminalRuleCall_4_0 = (RuleCall)cColumnsAssignment_4.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Create:
-		//    'CREATE'  path=Path ':' colums=Array;
+		//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CREATE'  path=Path ':' colums=Array
+		//'CREATE'  path=Type ':' '['(columns+=STRING)* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'CREATE'
 		public Keyword getCREATEKeyword_0() { return cCREATEKeyword_0; }
 		
-		//path=Path
+		//path=Type
 		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
 		
-		//Path
-		public RuleCall getPathPathParserRuleCall_1_0() { return cPathPathParserRuleCall_1_0; }
+		//Type
+		public RuleCall getPathTypeParserRuleCall_1_0() { return cPathTypeParserRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//colums=Array
-		public Assignment getColumsAssignment_3() { return cColumsAssignment_3; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
 		
-		//Array
-		public RuleCall getColumsArrayParserRuleCall_3_0() { return cColumsArrayParserRuleCall_3_0; }
+		//(columns+=STRING)*
+		public Assignment getColumnsAssignment_4() { return cColumnsAssignment_4; }
+		
+		//STRING
+		public RuleCall getColumnsSTRINGTerminalRuleCall_4_0() { return cColumnsSTRINGTerminalRuleCall_4_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
 	}
 	public class LoadElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Load");
@@ -137,13 +130,13 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPathPathParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
+		private final RuleCall cPathTypeParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
 		
 		//Load:
-		//    'LOAD' name=ID '=' path=Path ;
+		//    'LOAD' name=ID '=' path=Type ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LOAD' name=ID '=' path=Path
+		//'LOAD' name=ID '=' path=Type
 		public Group getGroup() { return cGroup; }
 		
 		//'LOAD'
@@ -158,11 +151,11 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
-		//path=Path
+		//path=Type
 		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
 		
-		//Path
-		public RuleCall getPathPathParserRuleCall_3_0() { return cPathPathParserRuleCall_3_0; }
+		//Type
+		public RuleCall getPathTypeParserRuleCall_3_0() { return cPathTypeParserRuleCall_3_0; }
 	}
 	public class PrintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Print");
@@ -213,8 +206,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	
 	private final ModelElements pModel;
-	private final PathElements pPath;
-	private final ArrayElements pArray;
+	private final TypeElements pType;
 	private final CommandElements pCommand;
 	private final CreateElements pCreate;
 	private final LoadElements pLoad;
@@ -231,8 +223,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pPath = new PathElements();
-		this.pArray = new ArrayElements();
+		this.pType = new TypeElements();
 		this.pCommand = new CommandElements();
 		this.pCreate = new CreateElements();
 		this.pLoad = new LoadElements();
@@ -277,24 +268,14 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getModelAccess().getRule();
 	}
 	
-	//Path:
+	//Type:
 	//    name=STRING;
-	public PathElements getPathAccess() {
-		return pPath;
+	public TypeElements getTypeAccess() {
+		return pType;
 	}
 	
-	public ParserRule getPathRule() {
-		return getPathAccess().getRule();
-	}
-	
-	//Array:
-	//    (elements+=STRING)*;
-	public ArrayElements getArrayAccess() {
-		return pArray;
-	}
-	
-	public ParserRule getArrayRule() {
-		return getArrayAccess().getRule();
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
 	}
 	
 	//Command:
@@ -308,7 +289,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Create:
-	//    'CREATE'  path=Path ':' colums=Array;
+	//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
 	public CreateElements getCreateAccess() {
 		return pCreate;
 	}
@@ -318,7 +299,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Load:
-	//    'LOAD' name=ID '=' path=Path ;
+	//    'LOAD' name=ID '=' path=Type ;
 	public LoadElements getLoadAccess() {
 		return pLoad;
 	}

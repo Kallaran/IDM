@@ -5,21 +5,20 @@ generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 Model:
 	commands+=Command*;
 
-Path:
+Type:
 	name=STRING;
 
-Array:
-	(elements+=STRING)*;
+
 	
 	
 Command:
 	Create | Load | Print | Head;
 	
 Create:
-	'CREATE'  path=Path ':' colums=Array;
+	'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
 
 Load:
-	'LOAD' name=ID '=' path=Path ;
+	'LOAD' name=ID '=' path=Type ;
 	
 Print:
 	'PRINT' name=ID ;

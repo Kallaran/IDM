@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Path;
+import org.xtext.example.mydsl.myDsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public class LoadImpl extends CommandImpl implements Load
    * @generated
    * @ordered
    */
-  protected Path path;
+  protected Type path;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public class LoadImpl extends CommandImpl implements Load
    * @generated
    */
   @Override
-  public Path getPath()
+  public Type getPath()
   {
     return path;
   }
@@ -123,9 +123,9 @@ public class LoadImpl extends CommandImpl implements Load
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPath(Path newPath, NotificationChain msgs)
+  public NotificationChain basicSetPath(Type newPath, NotificationChain msgs)
   {
-    Path oldPath = path;
+    Type oldPath = path;
     path = newPath;
     if (eNotificationRequired())
     {
@@ -141,7 +141,7 @@ public class LoadImpl extends CommandImpl implements Load
    * @generated
    */
   @Override
-  public void setPath(Path newPath)
+  public void setPath(Type newPath)
   {
     if (newPath != path)
     {
@@ -205,7 +205,7 @@ public class LoadImpl extends CommandImpl implements Load
         setName((String)newValue);
         return;
       case MyDslPackage.LOAD__PATH:
-        setPath((Path)newValue);
+        setPath((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +225,7 @@ public class LoadImpl extends CommandImpl implements Load
         setName(NAME_EDEFAULT);
         return;
       case MyDslPackage.LOAD__PATH:
-        setPath((Path)null);
+        setPath((Type)null);
         return;
     }
     super.eUnset(featureID);

@@ -8,11 +8,12 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.myDsl.Command
-import org.xtext.example.mydsl.myDsl.Path
 import org.xtext.example.mydsl.myDsl.Print
 import org.xtext.example.mydsl.myDsl.Load
 import org.xtext.example.mydsl.myDsl.Create
 import org.xtext.example.mydsl.myDsl.Head
+import java.util.ArrayList
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -58,8 +59,14 @@ import pandas as pd
     }
     
       private def compile(Create c) {
+	
+		var String str = "";
+		for( col : c.columns){
+			str+= "'" + col + "', ";
+		}
+
 		'''
-		«c.path.name» = pd.DataFrame([['Sacramento', 'California'], ['Miami', 'Florida']], columns=['City', 'State'])
+		«c.path.name» = pd.DataFrame([['Sacramento', 'California'], ['Miami', 'Florida']], columns=[«str»])
 		«c.path.name».to_csv('«c.path.name».csv', index=False)
 		'''
 		

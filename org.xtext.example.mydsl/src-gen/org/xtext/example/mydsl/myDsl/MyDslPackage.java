@@ -86,14 +86,14 @@ public interface MyDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.PathImpl <em>Path</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.PathImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPath()
+   * @see org.xtext.example.mydsl.myDsl.impl.TypeImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType()
    * @generated
    */
-  int PATH = 1;
+  int TYPE = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,44 +102,16 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PATH__NAME = 0;
+  int TYPE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Path</em>' class.
+   * The number of structural features of the '<em>Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PATH_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ArrayImpl <em>Array</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ArrayImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray()
-   * @generated
-   */
-  int ARRAY = 2;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>Array</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_FEATURE_COUNT = 1;
+  int TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CommandImpl <em>Command</em>}' class.
@@ -149,7 +121,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 3;
+  int COMMAND = 2;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -168,7 +140,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreate()
    * @generated
    */
-  int CREATE = 4;
+  int CREATE = 3;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -180,13 +152,13 @@ public interface MyDslPackage extends EPackage
   int CREATE__PATH = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Colums</b></em>' containment reference.
+   * The feature id for the '<em><b>Columns</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE__COLUMS = COMMAND_FEATURE_COUNT + 1;
+  int CREATE__COLUMNS = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Create</em>' class.
@@ -205,7 +177,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLoad()
    * @generated
    */
-  int LOAD = 5;
+  int LOAD = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -242,7 +214,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrint()
    * @generated
    */
-  int PRINT = 6;
+  int PRINT = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -270,7 +242,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getHead()
    * @generated
    */
-  int HEAD = 7;
+  int HEAD = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -313,46 +285,25 @@ public interface MyDslPackage extends EPackage
   EReference getModel_Commands();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Path <em>Path</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Path</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Path
+   * @return the meta object for class '<em>Type</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type
    * @generated
    */
-  EClass getPath();
+  EClass getType();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Path#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Path#getName()
-   * @see #getPath()
+   * @see org.xtext.example.mydsl.myDsl.Type#getName()
+   * @see #getType()
    * @generated
    */
-  EAttribute getPath_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Array <em>Array</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Array</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Array
-   * @generated
-   */
-  EClass getArray();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Array#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Elements</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Array#getElements()
-   * @see #getArray()
-   * @generated
-   */
-  EAttribute getArray_Elements();
+  EAttribute getType_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Command <em>Command</em>}'.
@@ -386,15 +337,15 @@ public interface MyDslPackage extends EPackage
   EReference getCreate_Path();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Create#getColums <em>Colums</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Create#getColumns <em>Columns</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Colums</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Create#getColums()
+   * @return the meta object for the attribute list '<em>Columns</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Create#getColumns()
    * @see #getCreate()
    * @generated
    */
-  EReference getCreate_Colums();
+  EAttribute getCreate_Columns();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Load <em>Load</em>}'.
@@ -512,14 +463,14 @@ public interface MyDslPackage extends EPackage
     EReference MODEL__COMMANDS = eINSTANCE.getModel_Commands();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.PathImpl <em>Path</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.PathImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPath()
+     * @see org.xtext.example.mydsl.myDsl.impl.TypeImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType()
      * @generated
      */
-    EClass PATH = eINSTANCE.getPath();
+    EClass TYPE = eINSTANCE.getType();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -527,25 +478,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PATH__NAME = eINSTANCE.getPath_Name();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ArrayImpl <em>Array</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ArrayImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray()
-     * @generated
-     */
-    EClass ARRAY = eINSTANCE.getArray();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ARRAY__ELEMENTS = eINSTANCE.getArray_Elements();
+    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CommandImpl <em>Command</em>}' class.
@@ -576,12 +509,12 @@ public interface MyDslPackage extends EPackage
     EReference CREATE__PATH = eINSTANCE.getCreate_Path();
 
     /**
-     * The meta object literal for the '<em><b>Colums</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Columns</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CREATE__COLUMS = eINSTANCE.getCreate_Colums();
+    EAttribute CREATE__COLUMNS = eINSTANCE.getCreate_Columns();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LoadImpl <em>Load</em>}' class.

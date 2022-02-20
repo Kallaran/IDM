@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ package org.xtext.example.mydsl.myDsl;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getColums <em>Colums</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate()
@@ -28,12 +29,12 @@ public interface Create extends Command
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Path</em>' containment reference.
-   * @see #setPath(Path)
+   * @see #setPath(Type)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Path()
    * @model containment="true"
    * @generated
    */
-  Path getPath();
+  Type getPath();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}' containment reference.
@@ -43,28 +44,18 @@ public interface Create extends Command
    * @see #getPath()
    * @generated
    */
-  void setPath(Path value);
+  void setPath(Type value);
 
   /**
-   * Returns the value of the '<em><b>Colums</b></em>' containment reference.
+   * Returns the value of the '<em><b>Columns</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Colums</em>' containment reference.
-   * @see #setColums(Array)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Colums()
-   * @model containment="true"
+   * @return the value of the '<em>Columns</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Columns()
+   * @model unique="false"
    * @generated
    */
-  Array getColums();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getColums <em>Colums</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Colums</em>' containment reference.
-   * @see #getColums()
-   * @generated
-   */
-  void setColums(Array value);
+  EList<String> getColumns();
 
 } // Create

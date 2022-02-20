@@ -9,16 +9,13 @@
     <genClasses ecoreClass="MyDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/commands"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Path">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Path/name"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Array">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Array/elements"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Command"/>
     <genClasses ecoreClass="MyDsl.ecore#//Create">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Create/path"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Create/colums"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Create/columns"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Load">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Load/name"/>
