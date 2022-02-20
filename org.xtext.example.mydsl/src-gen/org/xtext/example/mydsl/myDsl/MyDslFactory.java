@@ -33,6 +33,24 @@ public interface MyDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Path</em>'.
+   * @generated
+   */
+  Path createPath();
+
+  /**
+   * Returns a new object of class '<em>Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array</em>'.
+   * @generated
+   */
+  Array createArray();
+
+  /**
    * Returns a new object of class '<em>Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,13 +87,13 @@ public interface MyDslFactory extends EFactory
   Print createPrint();
 
   /**
-   * Returns a new object of class '<em>Path</em>'.
+   * Returns a new object of class '<em>Head</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Path</em>'.
+   * @return a new object of class '<em>Head</em>'.
    * @generated
    */
-  Path createPath();
+  Head createHead();
 
   /**
    * Returns the package supported by this factory.

@@ -66,11 +66,13 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.MODEL: return createModel();
+      case MyDslPackage.PATH: return createPath();
+      case MyDslPackage.ARRAY: return createArray();
       case MyDslPackage.COMMAND: return createCommand();
       case MyDslPackage.CREATE: return createCreate();
       case MyDslPackage.LOAD: return createLoad();
       case MyDslPackage.PRINT: return createPrint();
-      case MyDslPackage.PATH: return createPath();
+      case MyDslPackage.HEAD: return createHead();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -86,6 +88,30 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Path createPath()
+  {
+    PathImpl path = new PathImpl();
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Array createArray()
+  {
+    ArrayImpl array = new ArrayImpl();
+    return array;
   }
 
   /**
@@ -142,10 +168,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Path createPath()
+  public Head createHead()
   {
-    PathImpl path = new PathImpl();
-    return path;
+    HeadImpl head = new HeadImpl();
+    return head;
   }
 
   /**

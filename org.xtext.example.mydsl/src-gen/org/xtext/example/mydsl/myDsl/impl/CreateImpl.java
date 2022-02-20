@@ -3,20 +3,55 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.xtext.example.mydsl.myDsl.Array;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Path;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Create</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl#getColums <em>Colums</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class CreateImpl extends CommandImpl implements Create
 {
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected Path path;
+
+  /**
+   * The cached value of the '{@link #getColums() <em>Colums</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getColums()
+   * @generated
+   * @ordered
+   */
+  protected Array colums;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +71,200 @@ public class CreateImpl extends CommandImpl implements Create
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.CREATE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Path getPath()
+  {
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPath(Path newPath, NotificationChain msgs)
+  {
+    Path oldPath = path;
+    path = newPath;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__PATH, oldPath, newPath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPath(Path newPath)
+  {
+    if (newPath != path)
+    {
+      NotificationChain msgs = null;
+      if (path != null)
+        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__PATH, null, msgs);
+      if (newPath != null)
+        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__PATH, null, msgs);
+      msgs = basicSetPath(newPath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__PATH, newPath, newPath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Array getColums()
+  {
+    return colums;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetColums(Array newColums, NotificationChain msgs)
+  {
+    Array oldColums = colums;
+    colums = newColums;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__COLUMS, oldColums, newColums);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setColums(Array newColums)
+  {
+    if (newColums != colums)
+    {
+      NotificationChain msgs = null;
+      if (colums != null)
+        msgs = ((InternalEObject)colums).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__COLUMS, null, msgs);
+      if (newColums != null)
+        msgs = ((InternalEObject)newColums).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__COLUMS, null, msgs);
+      msgs = basicSetColums(newColums, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__COLUMS, newColums, newColums));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CREATE__PATH:
+        return basicSetPath(null, msgs);
+      case MyDslPackage.CREATE__COLUMS:
+        return basicSetColums(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CREATE__PATH:
+        return getPath();
+      case MyDslPackage.CREATE__COLUMS:
+        return getColums();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CREATE__PATH:
+        setPath((Path)newValue);
+        return;
+      case MyDslPackage.CREATE__COLUMS:
+        setColums((Array)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CREATE__PATH:
+        setPath((Path)null);
+        return;
+      case MyDslPackage.CREATE__COLUMS:
+        setColums((Array)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.CREATE__PATH:
+        return path != null;
+      case MyDslPackage.CREATE__COLUMS:
+        return colums != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //CreateImpl

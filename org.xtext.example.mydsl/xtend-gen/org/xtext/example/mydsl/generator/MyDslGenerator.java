@@ -12,6 +12,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.myDsl.Command;
+import org.xtext.example.mydsl.myDsl.Create;
+import org.xtext.example.mydsl.myDsl.Head;
+import org.xtext.example.mydsl.myDsl.Load;
+import org.xtext.example.mydsl.myDsl.Print;
 
 /**
  * Generates code from your model files on save.
@@ -42,76 +46,87 @@ public class MyDslGenerator extends AbstractGenerator {
     fsa.generateFile("file.py", _builder);
   }
   
-  private CharSequence compile1(final Command c) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      String _name = c.eClass().getName();
-      boolean _tripleEquals = (_name == "Print");
-      if (_tripleEquals) {
-        _builder.append("print(\"");
-        String _name_1 = c.getName();
-        _builder.append(_name_1);
-        _builder.append("\")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      String _name_2 = c.eClass().getName();
-      boolean _tripleEquals_1 = (_name_2 == "Load");
-      if (_tripleEquals_1) {
-        _builder.append("load(\"");
-        String _name_3 = c.getName();
-        _builder.append(_name_3);
-        _builder.append("\")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      String _name_4 = c.eClass().getName();
-      boolean _tripleEquals_2 = (_name_4 == "Create");
-      if (_tripleEquals_2) {
-        _builder.append("create(\"");
-        String _name_5 = c.getName();
-        _builder.append(_name_5);
-        _builder.append("\")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
   private CharSequence compile(final Command c) {
     CharSequence _switchResult = null;
     boolean _matched = false;
     String _name = c.eClass().getName();
-    boolean _tripleEquals = (_name == "Print");
+    boolean _tripleEquals = (_name == "Create");
     if (_tripleEquals) {
       _matched=true;
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("print(\"");
-      String _name_1 = c.getName();
-      _builder.append(_name_1);
-      _builder.append("\")");
-      _switchResult = _builder;
+      _switchResult = this.compile(((Create) c));
+    }
+    if (!_matched) {
+      String _name_1 = c.eClass().getName();
+      boolean _tripleEquals_1 = (_name_1 == "Load");
+      if (_tripleEquals_1) {
+        _matched=true;
+        _switchResult = this.compile(((Load) c));
+      }
     }
     if (!_matched) {
       String _name_2 = c.eClass().getName();
-      boolean _tripleEquals_1 = (_name_2 == "Load");
-      if (_tripleEquals_1) {
+      boolean _tripleEquals_2 = (_name_2 == "Print");
+      if (_tripleEquals_2) {
         _matched=true;
-        StringConcatenation _builder_1 = new StringConcatenation();
-        String _name_3 = c.getName();
-        _builder_1.append(_name_3);
-        _builder_1.append(" = pd.read_csv(\'");
-        String _name_4 = c.getPath().getName();
-        _builder_1.append(_name_4);
-        _builder_1.append("\')");
-        _switchResult = _builder_1;
+        _switchResult = this.compile(((Print) c));
+      }
+    }
+    if (!_matched) {
+      String _name_3 = c.eClass().getName();
+      boolean _tripleEquals_3 = (_name_3 == "Head");
+      if (_tripleEquals_3) {
+        _matched=true;
+        _switchResult = this.compile(((Head) c));
       }
     }
     if (!_matched) {
       _switchResult = "Error";
     }
     return _switchResult;
+  }
+  
+  private CharSequence compile(final Print p) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("print(\"");
+    String _name = p.getName();
+    _builder.append(_name);
+    _builder.append("\")");
+    return _builder;
+  }
+  
+  private CharSequence compile(final Load l) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = l.getName();
+    _builder.append(_name);
+    _builder.append(" = pd.read_csv(\'");
+    String _name_1 = l.getPath().getName();
+    _builder.append(_name_1);
+    _builder.append("\')");
+    return _builder;
+  }
+  
+  private CharSequence compile(final Create c) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getPath().getName();
+    _builder.append(_name);
+    _builder.append(" = pd.DataFrame([[\'Sacramento\', \'California\'], [\'Miami\', \'Florida\']], columns=[\'City\', \'State\'])");
+    _builder.newLineIfNotEmpty();
+    String _name_1 = c.getPath().getName();
+    _builder.append(_name_1);
+    _builder.append(".to_csv(\'");
+    String _name_2 = c.getPath().getName();
+    _builder.append(_name_2);
+    _builder.append(".csv\', index=False)");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compile(final Head l) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("print(");
+    String _name = l.getName();
+    _builder.append(_name);
+    _builder.append(".head())");
+    return _builder;
   }
 }

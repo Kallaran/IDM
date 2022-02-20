@@ -35,14 +35,16 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
 			builder.put(grammarAccess.getLoadAccess().getGroup(), "rule__Load__Group__0");
 			builder.put(grammarAccess.getPrintAccess().getGroup(), "rule__Print__Group__0");
+			builder.put(grammarAccess.getHeadAccess().getGroup(), "rule__Head__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
-			builder.put(grammarAccess.getCreateAccess().getNameAssignment_1(), "rule__Create__NameAssignment_1");
-			builder.put(grammarAccess.getCreateAccess().getPathAssignment_3(), "rule__Create__PathAssignment_3");
+			builder.put(grammarAccess.getPathAccess().getNameAssignment(), "rule__Path__NameAssignment");
+			builder.put(grammarAccess.getArrayAccess().getElementsAssignment(), "rule__Array__ElementsAssignment");
+			builder.put(grammarAccess.getCreateAccess().getPathAssignment_1(), "rule__Create__PathAssignment_1");
+			builder.put(grammarAccess.getCreateAccess().getColumsAssignment_3(), "rule__Create__ColumsAssignment_3");
 			builder.put(grammarAccess.getLoadAccess().getNameAssignment_1(), "rule__Load__NameAssignment_1");
 			builder.put(grammarAccess.getLoadAccess().getPathAssignment_3(), "rule__Load__PathAssignment_3");
 			builder.put(grammarAccess.getPrintAccess().getNameAssignment_1(), "rule__Print__NameAssignment_1");
-			builder.put(grammarAccess.getPrintAccess().getPathAssignment_3(), "rule__Print__PathAssignment_3");
-			builder.put(grammarAccess.getPathAccess().getNameAssignment(), "rule__Path__NameAssignment");
+			builder.put(grammarAccess.getHeadAccess().getNameAssignment_1(), "rule__Head__NameAssignment_1");
 		}
 	}
 	

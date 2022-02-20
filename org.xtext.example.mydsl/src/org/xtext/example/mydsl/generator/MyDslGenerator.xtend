@@ -9,6 +9,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.myDsl.Command
 import org.xtext.example.mydsl.myDsl.Path
+import org.xtext.example.mydsl.myDsl.Print
+import org.xtext.example.mydsl.myDsl.Load
+import org.xtext.example.mydsl.myDsl.Create
+import org.xtext.example.mydsl.myDsl.Head
 
 /**
  * Generates code from your model files on save.
@@ -32,25 +36,42 @@ import pandas as pd
    		)
    	}
    	
-   	private def compile1(Command c) '''
-		«IF c.eClass().name === "Print"»
-			print("«c.name»")
-		«ENDIF»
-		«IF c.eClass().name === "Load"»
-			load("«c.name»")
-		«ENDIF»
-		«IF c.eClass().name === "Create"»
-			create("«c.name»")
-		«ENDIF»		
-    '''
+   	
     
     private def compile(Command c) {
     	switch c {
- 			case c.eClass().name === "Print" : '''print("«c.name»")'''
- 			case c.eClass().name === "Load" : '''«c.name» = pd.read_csv('«c.path.name»')'''
+    		case c.eClass().name === "Create" : compile(c as Create)
+    		case c.eClass().name === "Load" : compile(c as Load)
+ 			case c.eClass().name === "Print" : compile(c as Print)
+ 			case c.eClass().name === "Head" : compile(c as Head)
+ 			
  			default : "Error"
 		}
     }
+    
+    private def compile(Print p) {
+    	'''print("«p.name»")'''
+    }
+    
+    private def compile(Load l) {
+		'''«l.name» = pd.read_csv('«l.path.name»')'''
+    }
+    
+      private def compile(Create c) {
+		'''
+		«c.path.name» = pd.DataFrame([['Sacramento', 'California'], ['Miami', 'Florida']], columns=['City', 'State'])
+		«c.path.name».to_csv('«c.path.name».csv', index=False)
+		'''
+		
+    }
+    
+      private def compile(Head l) {
+		'''print(«l.name».head())'''
+    }
+    
+
+    
+
 
    	
 }

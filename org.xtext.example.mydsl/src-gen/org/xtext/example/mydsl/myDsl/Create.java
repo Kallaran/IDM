@@ -9,6 +9,13 @@ package org.xtext.example.mydsl.myDsl;
  * A representation of the model object '<em><b>Create</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getColums <em>Colums</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate()
  * @model
@@ -16,4 +23,48 @@ package org.xtext.example.mydsl.myDsl;
  */
 public interface Create extends Command
 {
+  /**
+   * Returns the value of the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Path</em>' containment reference.
+   * @see #setPath(Path)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Path()
+   * @model containment="true"
+   * @generated
+   */
+  Path getPath();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' containment reference.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(Path value);
+
+  /**
+   * Returns the value of the '<em><b>Colums</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Colums</em>' containment reference.
+   * @see #setColums(Array)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Colums()
+   * @model containment="true"
+   * @generated
+   */
+  Array getColums();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getColums <em>Colums</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Colums</em>' containment reference.
+   * @see #getColums()
+   * @generated
+   */
+  void setColums(Array value);
+
 } // Create

@@ -81,6 +81,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter casePath(Path object)
+      {
+        return createPathAdapter();
+      }
+      @Override
+      public Adapter caseArray(Array object)
+      {
+        return createArrayAdapter();
+      }
+      @Override
       public Adapter caseCommand(Command object)
       {
         return createCommandAdapter();
@@ -101,9 +111,9 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createPrintAdapter();
       }
       @Override
-      public Adapter casePath(Path object)
+      public Adapter caseHead(Head object)
       {
-        return createPathAdapter();
+        return createHeadAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -138,6 +148,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Path <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Path
+   * @generated
+   */
+  public Adapter createPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Array <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Array
+   * @generated
+   */
+  public Adapter createArrayAdapter()
   {
     return null;
   }
@@ -203,16 +243,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Path <em>Path</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Head <em>Head</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Path
+   * @see org.xtext.example.mydsl.myDsl.Head
    * @generated
    */
-  public Adapter createPathAdapter()
+  public Adapter createHeadAdapter()
   {
     return null;
   }

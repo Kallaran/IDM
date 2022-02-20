@@ -9,6 +9,13 @@ package org.xtext.example.mydsl.myDsl;
  * A representation of the model object '<em><b>Load</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Load#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLoad()
  * @model
@@ -16,4 +23,48 @@ package org.xtext.example.mydsl.myDsl;
  */
 public interface Load extends Command
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLoad_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Load#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Path</em>' containment reference.
+   * @see #setPath(Path)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLoad_Path()
+   * @model containment="true"
+   * @generated
+   */
+  Path getPath();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' containment reference.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(Path value);
+
 } // Load

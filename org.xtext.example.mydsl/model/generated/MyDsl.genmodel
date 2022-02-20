@@ -9,15 +9,26 @@
     <genClasses ecoreClass="MyDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/commands"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Command/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Command/path"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Create"/>
-    <genClasses ecoreClass="MyDsl.ecore#//Load"/>
-    <genClasses ecoreClass="MyDsl.ecore#//Print"/>
     <genClasses ecoreClass="MyDsl.ecore#//Path">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Path/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Array">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Array/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Command"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Create">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Create/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Create/colums"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Load">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Load/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Load/path"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Print">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Print/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Head">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Head/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
