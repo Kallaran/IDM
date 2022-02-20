@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Create#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate()
@@ -57,5 +58,17 @@ public interface Create extends Command
    * @generated
    */
   EList<String> getColumns();
+
+  /**
+   * Returns the value of the '<em><b>Content</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Content}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Content()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Content> getContent();
 
 } // Create

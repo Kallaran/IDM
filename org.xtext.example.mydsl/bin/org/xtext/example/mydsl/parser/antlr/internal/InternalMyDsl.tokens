@@ -1,11 +1,11 @@
-':'=12
+':'=14
 '='=16
-'CREATE'=11
+'CREATE'=13
 'HEAD'=18
 'LOAD'=15
 'PRINT'=17
-'['=13
-']'=14
+'['=11
+']'=12
 RULE_ANY_OTHER=10
 RULE_ID=5
 RULE_INT=6

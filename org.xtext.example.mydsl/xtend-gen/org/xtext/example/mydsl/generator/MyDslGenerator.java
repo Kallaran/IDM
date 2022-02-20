@@ -13,6 +13,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.myDsl.Command;
+import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -109,17 +110,35 @@ public class MyDslGenerator extends AbstractGenerator {
   private CharSequence compile(final Create c) {
     CharSequence _xblockexpression = null;
     {
-      String str = "";
+      String colums = "";
       EList<String> _columns = c.getColumns();
       for (final String col : _columns) {
-        String _str = str;
-        str = (_str + (("\'" + col) + "\', "));
+        String _colums = colums;
+        colums = (_colums + (("\'" + col) + "\', "));
       }
+      String content = "[";
+      EList<Content> _content = c.getContent();
+      for (final Content cont : _content) {
+        {
+          String f = "[";
+          EList<String> _fields = cont.getFields();
+          for (final String field : _fields) {
+            String _f = f;
+            f = (_f + (("\'" + field) + "\', "));
+          }
+          String _content_1 = content;
+          content = (_content_1 + (f + "], "));
+        }
+      }
+      String _content_1 = content;
+      content = (_content_1 + "]");
       StringConcatenation _builder = new StringConcatenation();
       String _name = c.getPath().getName();
       _builder.append(_name);
-      _builder.append(" = pd.DataFrame([[\'Sacramento\', \'California\'], [\'Miami\', \'Florida\']], columns=[");
-      _builder.append(str);
+      _builder.append(" = pd.DataFrame(");
+      _builder.append(content);
+      _builder.append(", columns=[");
+      _builder.append(colums);
       _builder.append("])");
       _builder.newLineIfNotEmpty();
       String _name_1 = c.getPath().getName();

@@ -51,6 +51,15 @@ public interface MyDslFactory extends EFactory
   Command createCommand();
 
   /**
+   * Returns a new object of class '<em>Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Content</em>'.
+   * @generated
+   */
+  Content createContent();
+
+  /**
    * Returns a new object of class '<em>Create</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

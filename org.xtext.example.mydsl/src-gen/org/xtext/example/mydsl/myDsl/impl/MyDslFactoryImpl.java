@@ -68,6 +68,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.MODEL: return createModel();
       case MyDslPackage.TYPE: return createType();
       case MyDslPackage.COMMAND: return createCommand();
+      case MyDslPackage.CONTENT: return createContent();
       case MyDslPackage.CREATE: return createCreate();
       case MyDslPackage.LOAD: return createLoad();
       case MyDslPackage.PRINT: return createPrint();
@@ -111,6 +112,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     CommandImpl command = new CommandImpl();
     return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Content createContent()
+  {
+    ContentImpl content = new ContentImpl();
+    return content;
   }
 
   /**

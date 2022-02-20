@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -37,6 +38,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.CONTENT:
+				sequence_Content(context, (Content) semanticObject); 
+				return; 
 			case MyDslPackage.CREATE:
 				sequence_Create(context, (Create) semanticObject); 
 				return; 
@@ -62,11 +66,23 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Content returns Content
+	 *
+	 * Constraint:
+	 *     fields+=STRING*
+	 */
+	protected void sequence_Content(ISerializationContext context, Content semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Command returns Create
 	 *     Create returns Create
 	 *
 	 * Constraint:
-	 *     (path=Type columns+=STRING*)
+	 *     (path=Type columns+=STRING* content+=Content*)
 	 */
 	protected void sequence_Create(ISerializationContext context, Create semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

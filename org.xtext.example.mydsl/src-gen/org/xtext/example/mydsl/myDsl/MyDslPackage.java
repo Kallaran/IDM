@@ -133,6 +133,34 @@ public interface MyDslPackage extends EPackage
   int COMMAND_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ContentImpl <em>Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ContentImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContent()
+   * @generated
+   */
+  int CONTENT = 3;
+
+  /**
+   * The feature id for the '<em><b>Fields</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT__FIELDS = 0;
+
+  /**
+   * The number of structural features of the '<em>Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl <em>Create</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -140,7 +168,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreate()
    * @generated
    */
-  int CREATE = 3;
+  int CREATE = 4;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -161,13 +189,22 @@ public interface MyDslPackage extends EPackage
   int CREATE__COLUMNS = COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Content</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE__CONTENT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Create</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int CREATE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LoadImpl <em>Load</em>}' class.
@@ -177,7 +214,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLoad()
    * @generated
    */
-  int LOAD = 4;
+  int LOAD = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -214,7 +251,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrint()
    * @generated
    */
-  int PRINT = 5;
+  int PRINT = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -242,7 +279,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getHead()
    * @generated
    */
-  int HEAD = 6;
+  int HEAD = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -316,6 +353,27 @@ public interface MyDslPackage extends EPackage
   EClass getCommand();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Content <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Content
+   * @generated
+   */
+  EClass getContent();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Content#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Fields</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Content#getFields()
+   * @see #getContent()
+   * @generated
+   */
+  EAttribute getContent_Fields();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Create <em>Create</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -346,6 +404,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getCreate_Columns();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Create#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Create#getContent()
+   * @see #getCreate()
+   * @generated
+   */
+  EReference getCreate_Content();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Load <em>Load</em>}'.
@@ -491,6 +560,24 @@ public interface MyDslPackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ContentImpl <em>Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ContentImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContent()
+     * @generated
+     */
+    EClass CONTENT = eINSTANCE.getContent();
+
+    /**
+     * The meta object literal for the '<em><b>Fields</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTENT__FIELDS = eINSTANCE.getContent_Fields();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl <em>Create</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -515,6 +602,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute CREATE__COLUMNS = eINSTANCE.getCreate_Columns();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE__CONTENT = eINSTANCE.getCreate_Content();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LoadImpl <em>Load</em>}' class.

@@ -12,8 +12,7 @@ import org.xtext.example.mydsl.myDsl.Print
 import org.xtext.example.mydsl.myDsl.Load
 import org.xtext.example.mydsl.myDsl.Create
 import org.xtext.example.mydsl.myDsl.Head
-import java.util.ArrayList
-import java.util.List
+
 
 /**
  * Generates code from your model files on save.
@@ -58,21 +57,32 @@ import pandas as pd
 		'''«l.name» = pd.read_csv('«l.path.name»')'''
     }
     
-      private def compile(Create c) {
+    private def compile(Create c) {
 	
-		var String str = "";
+		var String colums = "";
 		for( col : c.columns){
-			str+= "'" + col + "', ";
+			colums+= "'" + col + "', ";
 		}
 
+		var String content = "[";
+		for( cont : c.content){
+			var String f = "[";
+			for(field : cont.fields){
+				f += "'" + field + "', ";
+			}
+			content+= f + "], ";
+			
+		}
+		content+="]"
+
 		'''
-		«c.path.name» = pd.DataFrame([['Sacramento', 'California'], ['Miami', 'Florida']], columns=[«str»])
+		«c.path.name» = pd.DataFrame(«content», columns=[«colums»])
 		«c.path.name».to_csv('«c.path.name».csv', index=False)
 		'''
 		
     }
     
-      private def compile(Head l) {
+    private def compile(Head l) {
 		'''print(«l.name».head())'''
     }
     

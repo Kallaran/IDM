@@ -16,7 +16,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Type;
@@ -31,6 +34,7 @@ import org.xtext.example.mydsl.myDsl.Type;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CreateImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +60,16 @@ public class CreateImpl extends CommandImpl implements Create
    * @ordered
    */
   protected EList<String> columns;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected EList<Content> content;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,12 +163,29 @@ public class CreateImpl extends CommandImpl implements Create
    * @generated
    */
   @Override
+  public EList<Content> getContent()
+  {
+    if (content == null)
+    {
+      content = new EObjectContainmentEList<Content>(Content.class, this, MyDslPackage.CREATE__CONTENT);
+    }
+    return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case MyDslPackage.CREATE__PATH:
         return basicSetPath(null, msgs);
+      case MyDslPackage.CREATE__CONTENT:
+        return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -173,6 +204,8 @@ public class CreateImpl extends CommandImpl implements Create
         return getPath();
       case MyDslPackage.CREATE__COLUMNS:
         return getColumns();
+      case MyDslPackage.CREATE__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -195,6 +228,10 @@ public class CreateImpl extends CommandImpl implements Create
         getColumns().clear();
         getColumns().addAll((Collection<? extends String>)newValue);
         return;
+      case MyDslPackage.CREATE__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends Content>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -215,6 +252,9 @@ public class CreateImpl extends CommandImpl implements Create
       case MyDslPackage.CREATE__COLUMNS:
         getColumns().clear();
         return;
+      case MyDslPackage.CREATE__CONTENT:
+        getContent().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -233,6 +273,8 @@ public class CreateImpl extends CommandImpl implements Create
         return path != null;
       case MyDslPackage.CREATE__COLUMNS:
         return columns != null && !columns.isEmpty();
+      case MyDslPackage.CREATE__CONTENT:
+        return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);
   }

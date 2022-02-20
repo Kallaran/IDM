@@ -185,6 +185,58 @@ ruleCommand returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleContent
+entryRuleContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getContentRule()); }
+	iv_ruleContent=ruleContent
+	{ $current=$iv_ruleContent.current; }
+	EOF;
+
+// Rule Content
+ruleContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getContentAccess().getContentAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='['
+		{
+			newLeafNode(otherlv_1, grammarAccess.getContentAccess().getLeftSquareBracketKeyword_1());
+		}
+		(
+			(
+				lv_fields_2_0=RULE_STRING
+				{
+					newLeafNode(lv_fields_2_0, grammarAccess.getContentAccess().getFieldsSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getContentRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"fields",
+						lv_fields_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)*
+		otherlv_3=']'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getContentAccess().getRightSquareBracketKeyword_3());
+		}
+	)
+;
+
 // Entry rule entryRuleCreate
 entryRuleCreate returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getCreateRule()); }
@@ -253,6 +305,37 @@ ruleCreate returns [EObject current=null]
 		otherlv_5=']'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getCreateAccess().getRightSquareBracketKeyword_5());
+		}
+		otherlv_6=':'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getCreateAccess().getColonKeyword_6());
+		}
+		otherlv_7='['
+		{
+			newLeafNode(otherlv_7, grammarAccess.getCreateAccess().getLeftSquareBracketKeyword_7());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCreateAccess().getContentContentParserRuleCall_8_0());
+				}
+				lv_content_8_0=ruleContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCreateRule());
+					}
+					add(
+						$current,
+						"content",
+						lv_content_8_0,
+						"org.xtext.example.mydsl.MyDsl.Content");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_9=']'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getCreateAccess().getRightSquareBracketKeyword_9());
 		}
 	)
 ;

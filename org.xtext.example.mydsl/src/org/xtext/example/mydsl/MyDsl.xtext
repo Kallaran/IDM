@@ -13,9 +13,12 @@ Type:
 	
 Command:
 	Create | Load | Print | Head;
+
+Content:
+	{Content} '['(fields+=STRING)* ']';
 	
 Create:
-	'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
+	'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 
 Load:
 	'LOAD' name=ID '=' path=Type ;

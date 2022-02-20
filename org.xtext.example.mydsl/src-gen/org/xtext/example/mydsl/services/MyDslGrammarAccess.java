@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -79,6 +80,37 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Head
 		public RuleCall getHeadParserRuleCall_3() { return cHeadParserRuleCall_3; }
 	}
+	public class ContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Content");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cContentAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFieldsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFieldsSTRINGTerminalRuleCall_2_0 = (RuleCall)cFieldsAssignment_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Content:
+		//    {Content} '['(fields+=STRING)* ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Content} '['(fields+=STRING)* ']'
+		public Group getGroup() { return cGroup; }
+		
+		//{Content}
+		public Action getContentAction_0() { return cContentAction_0; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
+		
+		//(fields+=STRING)*
+		public Assignment getFieldsAssignment_2() { return cFieldsAssignment_2; }
+		
+		//STRING
+		public RuleCall getFieldsSTRINGTerminalRuleCall_2_0() { return cFieldsSTRINGTerminalRuleCall_2_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+	}
 	public class CreateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Create");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -90,12 +122,17 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cColumnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cColumnsSTRINGTerminalRuleCall_4_0 = (RuleCall)cColumnsAssignment_4.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cLeftSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cContentAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cContentContentParserRuleCall_8_0 = (RuleCall)cContentAssignment_8.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Create:
-		//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
+		//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CREATE'  path=Type ':' '['(columns+=STRING)* ']'
+		//'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'CREATE'
@@ -121,6 +158,21 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
+		
+		//':'
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_7() { return cLeftSquareBracketKeyword_7; }
+		
+		//(content+=Content)*
+		public Assignment getContentAssignment_8() { return cContentAssignment_8; }
+		
+		//Content
+		public RuleCall getContentContentParserRuleCall_8_0() { return cContentContentParserRuleCall_8_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_9() { return cRightSquareBracketKeyword_9; }
 	}
 	public class LoadElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Load");
@@ -208,6 +260,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ModelElements pModel;
 	private final TypeElements pType;
 	private final CommandElements pCommand;
+	private final ContentElements pContent;
 	private final CreateElements pCreate;
 	private final LoadElements pLoad;
 	private final PrintElements pPrint;
@@ -225,6 +278,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pModel = new ModelElements();
 		this.pType = new TypeElements();
 		this.pCommand = new CommandElements();
+		this.pContent = new ContentElements();
 		this.pCreate = new CreateElements();
 		this.pLoad = new LoadElements();
 		this.pPrint = new PrintElements();
@@ -288,8 +342,18 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getCommandAccess().getRule();
 	}
 	
+	//Content:
+	//    {Content} '['(fields+=STRING)* ']';
+	public ContentElements getContentAccess() {
+		return pContent;
+	}
+	
+	public ParserRule getContentRule() {
+		return getContentAccess().getRule();
+	}
+	
 	//Create:
-	//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']';
+	//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 	public CreateElements getCreateAccess() {
 		return pCreate;
 	}
