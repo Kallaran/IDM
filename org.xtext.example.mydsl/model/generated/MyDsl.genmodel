@@ -31,5 +31,13 @@
     <genClasses ecoreClass="MyDsl.ecore#//Head">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Head/name"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//InsertColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertColumn/column"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ToCSV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ToCSV/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ToCSV/path"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

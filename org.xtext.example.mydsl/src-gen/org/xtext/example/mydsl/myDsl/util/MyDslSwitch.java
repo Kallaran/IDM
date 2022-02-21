@@ -133,6 +133,22 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.INSERT_COLUMN:
+      {
+        InsertColumn insertColumn = (InsertColumn)theEObject;
+        T result = caseInsertColumn(insertColumn);
+        if (result == null) result = caseCommand(insertColumn);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.TO_CSV:
+      {
+        ToCSV toCSV = (ToCSV)theEObject;
+        T result = caseToCSV(toCSV);
+        if (result == null) result = caseCommand(toCSV);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -261,6 +277,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHead(Head object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Insert Column</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Insert Column</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInsertColumn(InsertColumn object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>To CSV</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>To CSV</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseToCSV(ToCSV object)
   {
     return null;
   }

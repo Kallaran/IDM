@@ -96,6 +96,24 @@ public interface MyDslFactory extends EFactory
   Head createHead();
 
   /**
+   * Returns a new object of class '<em>Insert Column</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Column</em>'.
+   * @generated
+   */
+  InsertColumn createInsertColumn();
+
+  /**
+   * Returns a new object of class '<em>To CSV</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>To CSV</em>'.
+   * @generated
+   */
+  ToCSV createToCSV();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -12,7 +12,7 @@ Type:
 	
 	
 Command:
-	Create | Load | Print | Head;
+	Create | Load | Print | Head | InsertColumn | ToCSV;
 
 Content:
 	{Content} '['(fields+=STRING)* ']';
@@ -28,5 +28,11 @@ Print:
 
 Head:
 	'HEAD' name=ID ;
+	
+InsertColumn:
+	'INSERT' 'COLUMN' name=ID column=STRING;
+	
+ToCSV:
+	'TO' 'CSV' name=ID path=STRING;
 
 

@@ -12,7 +12,8 @@ import org.xtext.example.mydsl.myDsl.Print
 import org.xtext.example.mydsl.myDsl.Load
 import org.xtext.example.mydsl.myDsl.Create
 import org.xtext.example.mydsl.myDsl.Head
-
+import org.xtext.example.mydsl.myDsl.InsertColumn
+import org.xtext.example.mydsl.myDsl.ToCSV
 
 /**
  * Generates code from your model files on save.
@@ -44,6 +45,8 @@ import pandas as pd
     		case c.eClass().name === "Load" : compile(c as Load)
  			case c.eClass().name === "Print" : compile(c as Print)
  			case c.eClass().name === "Head" : compile(c as Head)
+ 			case c.eClass().name === "InsertColumn" : compile(c as InsertColumn)
+  			case c.eClass().name === "ToCSV" : compile(c as ToCSV)
  			
  			default : "Error"
 		}
@@ -84,6 +87,15 @@ import pandas as pd
     
     private def compile(Head l) {
 		'''print(«l.name».head())'''
+    }
+    
+    private def compile(InsertColumn i) {
+    	'''«i.name»["«i.column»"] = "" '''
+    }
+    
+    private def compile(ToCSV i) {
+    	'''«i.name».to_csv("«i.path»", index=False)  '''
+    		
     }
     
 

@@ -16,8 +16,10 @@ import org.xtext.example.mydsl.myDsl.Command;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.Head;
+import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Print;
+import org.xtext.example.mydsl.myDsl.ToCSV;
 
 /**
  * Generates code from your model files on save.
@@ -79,6 +81,22 @@ public class MyDslGenerator extends AbstractGenerator {
       if (_tripleEquals_3) {
         _matched=true;
         _switchResult = this.compile(((Head) c));
+      }
+    }
+    if (!_matched) {
+      String _name_4 = c.eClass().getName();
+      boolean _tripleEquals_4 = (_name_4 == "InsertColumn");
+      if (_tripleEquals_4) {
+        _matched=true;
+        _switchResult = this.compile(((InsertColumn) c));
+      }
+    }
+    if (!_matched) {
+      String _name_5 = c.eClass().getName();
+      boolean _tripleEquals_5 = (_name_5 == "ToCSV");
+      if (_tripleEquals_5) {
+        _matched=true;
+        _switchResult = this.compile(((ToCSV) c));
       }
     }
     if (!_matched) {
@@ -159,6 +177,28 @@ public class MyDslGenerator extends AbstractGenerator {
     String _name = l.getName();
     _builder.append(_name);
     _builder.append(".head())");
+    return _builder;
+  }
+  
+  private CharSequence compile(final InsertColumn i) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = i.getName();
+    _builder.append(_name);
+    _builder.append("[\"");
+    String _column = i.getColumn();
+    _builder.append(_column);
+    _builder.append("\"] = \"\" ");
+    return _builder;
+  }
+  
+  private CharSequence compile(final ToCSV i) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = i.getName();
+    _builder.append(_name);
+    _builder.append(".to_csv(\"");
+    String _path = i.getPath();
+    _builder.append(_path);
+    _builder.append("\", index=False)  ");
     return _builder;
   }
 }

@@ -14,11 +14,13 @@ import org.xtext.example.mydsl.myDsl.Command;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.Head;
+import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Print;
+import org.xtext.example.mydsl.myDsl.ToCSV;
 import org.xtext.example.mydsl.myDsl.Type;
 
 /**
@@ -84,6 +86,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass headEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass insertColumnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass toCSVEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -352,6 +368,72 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getInsertColumn()
+  {
+    return insertColumnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInsertColumn_Name()
+  {
+    return (EAttribute)insertColumnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInsertColumn_Column()
+  {
+    return (EAttribute)insertColumnEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getToCSV()
+  {
+    return toCSVEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getToCSV_Name()
+  {
+    return (EAttribute)toCSVEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getToCSV_Path()
+  {
+    return (EAttribute)toCSVEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public MyDslFactory getMyDslFactory()
   {
     return (MyDslFactory)getEFactoryInstance();
@@ -402,6 +484,14 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     headEClass = createEClass(HEAD);
     createEAttribute(headEClass, HEAD__NAME);
+
+    insertColumnEClass = createEClass(INSERT_COLUMN);
+    createEAttribute(insertColumnEClass, INSERT_COLUMN__NAME);
+    createEAttribute(insertColumnEClass, INSERT_COLUMN__COLUMN);
+
+    toCSVEClass = createEClass(TO_CSV);
+    createEAttribute(toCSVEClass, TO_CSV__NAME);
+    createEAttribute(toCSVEClass, TO_CSV__PATH);
   }
 
   /**
@@ -437,6 +527,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     loadEClass.getESuperTypes().add(this.getCommand());
     printEClass.getESuperTypes().add(this.getCommand());
     headEClass.getESuperTypes().add(this.getCommand());
+    insertColumnEClass.getESuperTypes().add(this.getCommand());
+    toCSVEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -464,6 +556,14 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(headEClass, Head.class, "Head", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHead_Name(), ecorePackage.getEString(), "name", null, 0, 1, Head.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(insertColumnEClass, InsertColumn.class, "InsertColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInsertColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, InsertColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInsertColumn_Column(), ecorePackage.getEString(), "column", null, 0, 1, InsertColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(toCSVEClass, ToCSV.class, "ToCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getToCSV_Name(), ecorePackage.getEString(), "name", null, 0, 1, ToCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getToCSV_Path(), ecorePackage.getEString(), "path", null, 0, 1, ToCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

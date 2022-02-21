@@ -116,6 +116,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createHeadAdapter();
       }
       @Override
+      public Adapter caseInsertColumn(InsertColumn object)
+      {
+        return createInsertColumnAdapter();
+      }
+      @Override
+      public Adapter caseToCSV(ToCSV object)
+      {
+        return createToCSVAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -253,6 +263,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHeadAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.InsertColumn <em>Insert Column</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.InsertColumn
+   * @generated
+   */
+  public Adapter createInsertColumnAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ToCSV <em>To CSV</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ToCSV
+   * @generated
+   */
+  public Adapter createToCSVAdapter()
   {
     return null;
   }

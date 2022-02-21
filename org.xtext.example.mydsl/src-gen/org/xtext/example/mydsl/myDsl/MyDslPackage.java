@@ -299,6 +299,80 @@ public interface MyDslPackage extends EPackage
    */
   int HEAD_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl <em>Insert Column</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInsertColumn()
+   * @generated
+   */
+  int INSERT_COLUMN = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_COLUMN__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Column</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_COLUMN__COLUMN = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Insert Column</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_COLUMN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ToCSVImpl <em>To CSV</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ToCSVImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getToCSV()
+   * @generated
+   */
+  int TO_CSV = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TO_CSV__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TO_CSV__PATH = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>To CSV</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TO_CSV_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Model <em>Model</em>}'.
@@ -491,6 +565,70 @@ public interface MyDslPackage extends EPackage
   EAttribute getHead_Name();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.InsertColumn <em>Insert Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Insert Column</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertColumn
+   * @generated
+   */
+  EClass getInsertColumn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.InsertColumn#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertColumn#getName()
+   * @see #getInsertColumn()
+   * @generated
+   */
+  EAttribute getInsertColumn_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.InsertColumn#getColumn <em>Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Column</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertColumn#getColumn()
+   * @see #getInsertColumn()
+   * @generated
+   */
+  EAttribute getInsertColumn_Column();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ToCSV <em>To CSV</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>To CSV</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ToCSV
+   * @generated
+   */
+  EClass getToCSV();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ToCSV#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ToCSV#getName()
+   * @see #getToCSV()
+   * @generated
+   */
+  EAttribute getToCSV_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ToCSV#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ToCSV#getPath()
+   * @see #getToCSV()
+   * @generated
+   */
+  EAttribute getToCSV_Path();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -672,6 +810,58 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute HEAD__NAME = eINSTANCE.getHead_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl <em>Insert Column</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInsertColumn()
+     * @generated
+     */
+    EClass INSERT_COLUMN = eINSTANCE.getInsertColumn();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_COLUMN__NAME = eINSTANCE.getInsertColumn_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_COLUMN__COLUMN = eINSTANCE.getInsertColumn_Column();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ToCSVImpl <em>To CSV</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ToCSVImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getToCSV()
+     * @generated
+     */
+    EClass TO_CSV = eINSTANCE.getToCSV();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TO_CSV__NAME = eINSTANCE.getToCSV_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TO_CSV__PATH = eINSTANCE.getToCSV_Path();
 
   }
 

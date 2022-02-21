@@ -17,10 +17,12 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.Head;
+import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Print;
+import org.xtext.example.mydsl.myDsl.ToCSV;
 import org.xtext.example.mydsl.myDsl.Type;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
@@ -47,6 +49,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.HEAD:
 				sequence_Head(context, (Head) semanticObject); 
 				return; 
+			case MyDslPackage.INSERT_COLUMN:
+				sequence_InsertColumn(context, (InsertColumn) semanticObject); 
+				return; 
 			case MyDslPackage.LOAD:
 				sequence_Load(context, (Load) semanticObject); 
 				return; 
@@ -55,6 +60,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.PRINT:
 				sequence_Print(context, (Print) semanticObject); 
+				return; 
+			case MyDslPackage.TO_CSV:
+				sequence_ToCSV(context, (ToCSV) semanticObject); 
 				return; 
 			case MyDslPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -110,6 +118,28 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Command returns InsertColumn
+	 *     InsertColumn returns InsertColumn
+	 *
+	 * Constraint:
+	 *     (name=ID column=STRING)
+	 */
+	protected void sequence_InsertColumn(ISerializationContext context, InsertColumn semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__COLUMN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__COLUMN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInsertColumnAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInsertColumnAccess().getColumnSTRINGTerminalRuleCall_3_0(), semanticObject.getColumn());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Command returns Load
 	 *     Load returns Load
 	 *
@@ -157,6 +187,28 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns ToCSV
+	 *     ToCSV returns ToCSV
+	 *
+	 * Constraint:
+	 *     (name=ID path=STRING)
+	 */
+	protected void sequence_ToCSV(ISerializationContext context, ToCSV semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.TO_CSV__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.TO_CSV__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.TO_CSV__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.TO_CSV__PATH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getToCSVAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getToCSVAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
