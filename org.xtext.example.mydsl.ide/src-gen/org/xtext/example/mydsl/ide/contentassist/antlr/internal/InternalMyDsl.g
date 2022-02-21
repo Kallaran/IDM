@@ -1205,9 +1205,9 @@ rule__Create__PathAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getCreateAccess().getPathTypeParserRuleCall_1_0()); }
-		ruleType
-		{ after(grammarAccess.getCreateAccess().getPathTypeParserRuleCall_1_0()); }
+		{ before(grammarAccess.getCreateAccess().getPathSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getCreateAccess().getPathSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

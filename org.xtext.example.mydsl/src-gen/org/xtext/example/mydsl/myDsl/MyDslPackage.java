@@ -171,7 +171,7 @@ public interface MyDslPackage extends EPackage
   int CREATE = 4;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -458,15 +458,15 @@ public interface MyDslPackage extends EPackage
   EClass getCreate();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @return the meta object for the attribute '<em>Path</em>'.
    * @see org.xtext.example.mydsl.myDsl.Create#getPath()
    * @see #getCreate()
    * @generated
    */
-  EReference getCreate_Path();
+  EAttribute getCreate_Path();
 
   /**
    * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Create#getColumns <em>Columns</em>}'.
@@ -726,12 +726,12 @@ public interface MyDslPackage extends EPackage
     EClass CREATE = eINSTANCE.getCreate();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CREATE__PATH = eINSTANCE.getCreate_Path();
+    EAttribute CREATE__PATH = eINSTANCE.getCreate_Path();
 
     /**
      * The meta object literal for the '<em><b>Columns</b></em>' attribute list feature.

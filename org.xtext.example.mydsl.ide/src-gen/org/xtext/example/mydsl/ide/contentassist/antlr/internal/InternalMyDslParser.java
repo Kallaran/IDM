@@ -3552,25 +3552,21 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__PathAssignment_1"
-    // InternalMyDsl.g:1202:1: rule__Create__PathAssignment_1 : ( ruleType ) ;
+    // InternalMyDsl.g:1202:1: rule__Create__PathAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Create__PathAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:1206:1: ( ( ruleType ) )
-            // InternalMyDsl.g:1207:2: ( ruleType )
+            // InternalMyDsl.g:1206:1: ( ( RULE_STRING ) )
+            // InternalMyDsl.g:1207:2: ( RULE_STRING )
             {
-            // InternalMyDsl.g:1207:2: ( ruleType )
-            // InternalMyDsl.g:1208:3: ruleType
+            // InternalMyDsl.g:1207:2: ( RULE_STRING )
+            // InternalMyDsl.g:1208:3: RULE_STRING
             {
-             before(grammarAccess.getCreateAccess().getPathTypeParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleType();
-
-            state._fsp--;
-
-             after(grammarAccess.getCreateAccess().getPathTypeParserRuleCall_1_0()); 
+             before(grammarAccess.getCreateAccess().getPathSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getCreateAccess().getPathSTRINGTerminalRuleCall_1_0()); 
 
             }
 

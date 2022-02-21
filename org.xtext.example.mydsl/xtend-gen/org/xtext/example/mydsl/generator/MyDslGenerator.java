@@ -151,20 +151,20 @@ public class MyDslGenerator extends AbstractGenerator {
       String _content_1 = content;
       content = (_content_1 + "]");
       StringConcatenation _builder = new StringConcatenation();
-      String _name = c.getPath().getName();
-      _builder.append(_name);
+      String _path = c.getPath();
+      _builder.append(_path);
       _builder.append(" = pd.DataFrame(");
       _builder.append(content);
       _builder.append(", columns=[");
       _builder.append(colums);
       _builder.append("])");
       _builder.newLineIfNotEmpty();
-      String _name_1 = c.getPath().getName();
-      _builder.append(_name_1);
+      String _path_1 = c.getPath();
+      _builder.append(_path_1);
       _builder.append(".to_csv(\'");
-      String _name_2 = c.getPath().getName();
-      _builder.append(_name_2);
-      _builder.append("\', index=False)");
+      String _path_2 = c.getPath();
+      _builder.append(_path_2);
+      _builder.append(".csv\', index=False)");
       _builder.newLineIfNotEmpty();
       _xblockexpression = _builder;
     }

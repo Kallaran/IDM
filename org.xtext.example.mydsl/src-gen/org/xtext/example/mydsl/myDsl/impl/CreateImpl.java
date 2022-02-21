@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,14 +41,24 @@ import org.xtext.example.mydsl.myDsl.Type;
 public class CreateImpl extends CommandImpl implements Create
 {
   /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPath()
    * @generated
    * @ordered
    */
-  protected Type path;
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute list.
@@ -98,7 +107,7 @@ public class CreateImpl extends CommandImpl implements Create
    * @generated
    */
   @Override
-  public Type getPath()
+  public String getPath()
   {
     return path;
   }
@@ -108,38 +117,13 @@ public class CreateImpl extends CommandImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPath(Type newPath, NotificationChain msgs)
+  @Override
+  public void setPath(String newPath)
   {
-    Type oldPath = path;
+    String oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__PATH, oldPath, newPath);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPath(Type newPath)
-  {
-    if (newPath != path)
-    {
-      NotificationChain msgs = null;
-      if (path != null)
-        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__PATH, null, msgs);
-      if (newPath != null)
-        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATE__PATH, null, msgs);
-      msgs = basicSetPath(newPath, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__PATH, newPath, newPath));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATE__PATH, oldPath, path));
   }
 
   /**
@@ -182,8 +166,6 @@ public class CreateImpl extends CommandImpl implements Create
   {
     switch (featureID)
     {
-      case MyDslPackage.CREATE__PATH:
-        return basicSetPath(null, msgs);
       case MyDslPackage.CREATE__CONTENT:
         return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
@@ -222,7 +204,7 @@ public class CreateImpl extends CommandImpl implements Create
     switch (featureID)
     {
       case MyDslPackage.CREATE__PATH:
-        setPath((Type)newValue);
+        setPath((String)newValue);
         return;
       case MyDslPackage.CREATE__COLUMNS:
         getColumns().clear();
@@ -247,7 +229,7 @@ public class CreateImpl extends CommandImpl implements Create
     switch (featureID)
     {
       case MyDslPackage.CREATE__PATH:
-        setPath((Type)null);
+        setPath(PATH_EDEFAULT);
         return;
       case MyDslPackage.CREATE__COLUMNS:
         getColumns().clear();
@@ -270,7 +252,7 @@ public class CreateImpl extends CommandImpl implements Create
     switch (featureID)
     {
       case MyDslPackage.CREATE__PATH:
-        return path != null;
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
       case MyDslPackage.CREATE__COLUMNS:
         return columns != null && !columns.isEmpty();
       case MyDslPackage.CREATE__CONTENT:
@@ -290,7 +272,9 @@ public class CreateImpl extends CommandImpl implements Create
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (columns: ");
+    result.append(" (path: ");
+    result.append(path);
+    result.append(", columns: ");
     result.append(columns);
     result.append(')');
     return result.toString();

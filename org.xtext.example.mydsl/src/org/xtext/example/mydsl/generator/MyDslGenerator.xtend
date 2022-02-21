@@ -78,9 +78,10 @@ import pandas as pd
 		}
 		content+="]"
 
+
 		'''
-		«c.path.name» = pd.DataFrame(«content», columns=[«colums»])
-		«c.path.name».to_csv('«c.path.name»', index=False)
+		«c.path» = pd.DataFrame(«content», columns=[«colums»])
+		«c.path».to_csv('«c.path».csv', index=False)
 		'''
 		
     }

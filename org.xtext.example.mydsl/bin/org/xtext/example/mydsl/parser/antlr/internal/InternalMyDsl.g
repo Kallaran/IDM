@@ -277,20 +277,19 @@ ruleCreate returns [EObject current=null]
 		}
 		(
 			(
+				lv_path_1_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getCreateAccess().getPathTypeParserRuleCall_1_0());
+					newLeafNode(lv_path_1_0, grammarAccess.getCreateAccess().getPathSTRINGTerminalRuleCall_1_0());
 				}
-				lv_path_1_0=ruleType
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCreateRule());
+						$current = createModelElement(grammarAccess.getCreateRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"path",
 						lv_path_1_0,
-						"org.xtext.example.mydsl.MyDsl.Type");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

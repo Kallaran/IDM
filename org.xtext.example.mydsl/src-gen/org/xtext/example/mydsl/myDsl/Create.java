@@ -26,26 +26,26 @@ import org.eclipse.emf.common.util.EList;
 public interface Create extends Command
 {
   /**
-   * Returns the value of the '<em><b>Path</b></em>' containment reference.
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' containment reference.
-   * @see #setPath(Type)
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreate_Path()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Type getPath();
+  String getPath();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Create#getPath <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' containment reference.
+   * @param value the new value of the '<em>Path</em>' attribute.
    * @see #getPath()
    * @generated
    */
-  void setPath(Type value);
+  void setPath(String value);
 
   /**
    * Returns the value of the '<em><b>Columns</b></em>' attribute list.

@@ -90,7 +90,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Create returns Create
 	 *
 	 * Constraint:
-	 *     (path=Type columns+=STRING* content+=Content*)
+	 *     (path=STRING columns+=STRING* content+=Content*)
 	 */
 	protected void sequence_Create(ISerializationContext context, Create semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

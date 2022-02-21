@@ -124,7 +124,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCREATEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathTypeParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
+		private final RuleCall cPathSTRINGTerminalRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cColumnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -137,20 +137,20 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cRightSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Create:
-		//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
+		//    'CREATE'  path=STRING ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']'
+		//'CREATE'  path=STRING ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'CREATE'
 		public Keyword getCREATEKeyword_0() { return cCREATEKeyword_0; }
 		
-		//path=Type
+		//path=STRING
 		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
 		
-		//Type
-		public RuleCall getPathTypeParserRuleCall_1_0() { return cPathTypeParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_1_0() { return cPathSTRINGTerminalRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -435,7 +435,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Create:
-	//    'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
+	//    'CREATE'  path=STRING ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 	public CreateElements getCreateAccess() {
 		return pCreate;
 	}

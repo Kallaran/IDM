@@ -258,9 +258,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getCreate_Path()
+  public EAttribute getCreate_Path()
   {
-    return (EReference)createEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)createEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -471,7 +471,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(contentEClass, CONTENT__FIELDS);
 
     createEClass = createEClass(CREATE);
-    createEReference(createEClass, CREATE__PATH);
+    createEAttribute(createEClass, CREATE__PATH);
     createEAttribute(createEClass, CREATE__COLUMNS);
     createEReference(createEClass, CREATE__CONTENT);
 
@@ -543,7 +543,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getContent_Fields(), ecorePackage.getEString(), "fields", null, 0, -1, Content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCreate_Path(), this.getType(), null, "path", null, 0, 1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreate_Path(), ecorePackage.getEString(), "path", null, 0, 1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreate_Columns(), ecorePackage.getEString(), "columns", null, 0, -1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCreate_Content(), this.getContent(), null, "content", null, 0, -1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

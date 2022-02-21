@@ -18,7 +18,7 @@ Content:
 	{Content} '['(fields+=STRING)* ']';
 	
 Create:
-	'CREATE'  path=Type ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
+	'CREATE'  path=STRING ':' '['(columns+=STRING)* ']' ':' '['(content+=Content)* ']';
 
 Load:
 	'LOAD' name=ID '=' path=Type ;
