@@ -15,6 +15,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.myDsl.Command;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
+import org.xtext.example.mydsl.myDsl.DropColumn;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -97,6 +98,14 @@ public class MyDslGenerator extends AbstractGenerator {
       if (_tripleEquals_5) {
         _matched=true;
         _switchResult = this.compile(((ToCSV) c));
+      }
+    }
+    if (!_matched) {
+      String _name_6 = c.eClass().getName();
+      boolean _tripleEquals_6 = (_name_6 == "DropColumn");
+      if (_tripleEquals_6) {
+        _matched=true;
+        _switchResult = this.compile(((DropColumn) c));
       }
     }
     if (!_matched) {
@@ -200,5 +209,25 @@ public class MyDslGenerator extends AbstractGenerator {
     _builder.append(_path);
     _builder.append("\", index=False)  ");
     return _builder;
+  }
+  
+  private CharSequence compile(final DropColumn i) {
+    CharSequence _xblockexpression = null;
+    {
+      String colums = "";
+      EList<String> _columns = i.getColumns();
+      for (final String col : _columns) {
+        String _colums = colums;
+        colums = (_colums + (("\'" + col) + "\', "));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = i.getName();
+      _builder.append(_name);
+      _builder.append(".drop(columns=[");
+      _builder.append(colums);
+      _builder.append("], inplace=True)  ");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
 }

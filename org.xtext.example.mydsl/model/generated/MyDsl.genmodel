@@ -36,5 +36,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ToCSV/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ToCSV/path"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//DropColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DropColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DropColumn/columns"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

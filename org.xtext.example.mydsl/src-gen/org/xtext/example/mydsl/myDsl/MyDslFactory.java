@@ -105,6 +105,15 @@ public interface MyDslFactory extends EFactory
   ToCSV createToCSV();
 
   /**
+   * Returns a new object of class '<em>Drop Column</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Drop Column</em>'.
+   * @generated
+   */
+  DropColumn createDropColumn();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

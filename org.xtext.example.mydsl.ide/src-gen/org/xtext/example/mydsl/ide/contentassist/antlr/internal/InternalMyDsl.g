@@ -274,6 +274,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleDropColumn
+entryRuleDropColumn
+:
+{ before(grammarAccess.getDropColumnRule()); }
+	 ruleDropColumn
+{ after(grammarAccess.getDropColumnRule()); } 
+	 EOF 
+;
+
+// Rule DropColumn
+ruleDropColumn 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getDropColumnAccess().getGroup()); }
+		(rule__DropColumn__Group__0)
+		{ after(grammarAccess.getDropColumnAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Command__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -313,6 +338,12 @@ rule__Command__Alternatives
 		{ before(grammarAccess.getCommandAccess().getToCSVParserRuleCall_5()); }
 		ruleToCSV
 		{ after(grammarAccess.getCommandAccess().getToCSVParserRuleCall_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getCommandAccess().getDropColumnParserRuleCall_6()); }
+		ruleDropColumn
+		{ after(grammarAccess.getCommandAccess().getDropColumnParserRuleCall_6()); }
 	)
 ;
 finally {
@@ -1129,6 +1160,121 @@ finally {
 }
 
 
+rule__DropColumn__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropColumn__Group__0__Impl
+	rule__DropColumn__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropColumnAccess().getDROPKeyword_0()); }
+	'DROP'
+	{ after(grammarAccess.getDropColumnAccess().getDROPKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropColumn__Group__1__Impl
+	rule__DropColumn__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropColumnAccess().getCOLUMNKeyword_1()); }
+	'COLUMN'
+	{ after(grammarAccess.getDropColumnAccess().getCOLUMNKeyword_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropColumn__Group__2__Impl
+	rule__DropColumn__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropColumnAccess().getNameAssignment_2()); }
+	(rule__DropColumn__NameAssignment_2)
+	{ after(grammarAccess.getDropColumnAccess().getNameAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropColumn__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	(
+		{ before(grammarAccess.getDropColumnAccess().getColumnsAssignment_3()); }
+		(rule__DropColumn__ColumnsAssignment_3)
+		{ after(grammarAccess.getDropColumnAccess().getColumnsAssignment_3()); }
+	)
+	(
+		{ before(grammarAccess.getDropColumnAccess().getColumnsAssignment_3()); }
+		(rule__DropColumn__ColumnsAssignment_3)*
+		{ after(grammarAccess.getDropColumnAccess().getColumnsAssignment_3()); }
+	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Model__CommandsAssignment
 	@init {
 		int stackSize = keepStackSize();
@@ -1318,6 +1464,36 @@ rule__ToCSV__PathAssignment_3
 		{ before(grammarAccess.getToCSVAccess().getPathSTRINGTerminalRuleCall_3_0()); }
 		RULE_STRING
 		{ after(grammarAccess.getToCSVAccess().getPathSTRINGTerminalRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__NameAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDropColumnAccess().getNameIDTerminalRuleCall_2_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDropColumnAccess().getNameIDTerminalRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropColumn__ColumnsAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDropColumnAccess().getColumnsSTRINGTerminalRuleCall_3_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getDropColumnAccess().getColumnsSTRINGTerminalRuleCall_3_0()); }
 	)
 ;
 finally {

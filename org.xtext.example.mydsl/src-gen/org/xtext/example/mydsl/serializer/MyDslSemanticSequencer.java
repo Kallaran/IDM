@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
+import org.xtext.example.mydsl.myDsl.DropColumn;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -44,6 +45,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.CREATE:
 				sequence_Create(context, (Create) semanticObject); 
+				return; 
+			case MyDslPackage.DROP_COLUMN:
+				sequence_DropColumn(context, (DropColumn) semanticObject); 
 				return; 
 			case MyDslPackage.HEAD:
 				sequence_Head(context, (Head) semanticObject); 
@@ -89,6 +93,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (path=STRING columns+=STRING* content+=Content*)
 	 */
 	protected void sequence_Create(ISerializationContext context, Create semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns DropColumn
+	 *     DropColumn returns DropColumn
+	 *
+	 * Constraint:
+	 *     (name=ID columns+=STRING+)
+	 */
+	protected void sequence_DropColumn(ISerializationContext context, DropColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

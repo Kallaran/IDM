@@ -345,6 +345,43 @@ public interface MyDslPackage extends EPackage
    */
   int TO_CSV_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DropColumnImpl <em>Drop Column</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.DropColumnImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDropColumn()
+   * @generated
+   */
+  int DROP_COLUMN = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_COLUMN__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Columns</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_COLUMN__COLUMNS = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Drop Column</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DROP_COLUMN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Model <em>Model</em>}'.
@@ -580,6 +617,38 @@ public interface MyDslPackage extends EPackage
   EAttribute getToCSV_Path();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.DropColumn <em>Drop Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Drop Column</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DropColumn
+   * @generated
+   */
+  EClass getDropColumn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.DropColumn#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DropColumn#getName()
+   * @see #getDropColumn()
+   * @generated
+   */
+  EAttribute getDropColumn_Name();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.DropColumn#getColumns <em>Columns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Columns</em>'.
+   * @see org.xtext.example.mydsl.myDsl.DropColumn#getColumns()
+   * @see #getDropColumn()
+   * @generated
+   */
+  EAttribute getDropColumn_Columns();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -795,6 +864,32 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute TO_CSV__PATH = eINSTANCE.getToCSV_Path();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DropColumnImpl <em>Drop Column</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.DropColumnImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDropColumn()
+     * @generated
+     */
+    EClass DROP_COLUMN = eINSTANCE.getDropColumn();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DROP_COLUMN__NAME = eINSTANCE.getDropColumn_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Columns</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DROP_COLUMN__COLUMNS = eINSTANCE.getDropColumn_Columns();
 
   }
 

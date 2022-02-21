@@ -74,6 +74,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.HEAD: return createHead();
       case MyDslPackage.INSERT_COLUMN: return createInsertColumn();
       case MyDslPackage.TO_CSV: return createToCSV();
+      case MyDslPackage.DROP_COLUMN: return createDropColumn();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -185,6 +186,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ToCSVImpl toCSV = new ToCSVImpl();
     return toCSV;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DropColumn createDropColumn()
+  {
+    DropColumnImpl dropColumn = new DropColumnImpl();
+    return dropColumn;
   }
 
   /**
