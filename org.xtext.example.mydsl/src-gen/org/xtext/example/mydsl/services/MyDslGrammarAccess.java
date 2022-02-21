@@ -38,21 +38,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Command
 		public RuleCall getCommandsCommandParserRuleCall_0() { return cCommandsCommandParserRuleCall_0; }
 	}
-	public class TypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Type");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//Type:
-		//    name=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=STRING
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
-	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Command");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -190,13 +175,13 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPathTypeParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
+		private final RuleCall cPathSTRINGTerminalRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
 		
 		//Load:
-		//    'LOAD' name=ID '=' path=Type ;
+		//    'LOAD' name=ID '=' path=STRING ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LOAD' name=ID '=' path=Type
+		//'LOAD' name=ID '=' path=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'LOAD'
@@ -211,11 +196,11 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
-		//path=Type
+		//path=STRING
 		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
 		
-		//Type
-		public RuleCall getPathTypeParserRuleCall_3_0() { return cPathTypeParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_3_0() { return cPathSTRINGTerminalRuleCall_3_0; }
 	}
 	public class PrintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Print");
@@ -336,7 +321,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	
 	private final ModelElements pModel;
-	private final TypeElements pType;
 	private final CommandElements pCommand;
 	private final ContentElements pContent;
 	private final CreateElements pCreate;
@@ -356,7 +340,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pType = new TypeElements();
 		this.pCommand = new CommandElements();
 		this.pContent = new ContentElements();
 		this.pCreate = new CreateElements();
@@ -404,16 +387,6 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getModelAccess().getRule();
 	}
 	
-	//Type:
-	//    name=STRING;
-	public TypeElements getTypeAccess() {
-		return pType;
-	}
-	
-	public ParserRule getTypeRule() {
-		return getTypeAccess().getRule();
-	}
-	
 	//Command:
 	//    Create | Load | Print | Head | InsertColumn | ToCSV;
 	public CommandElements getCommandAccess() {
@@ -445,7 +418,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Load:
-	//    'LOAD' name=ID '=' path=Type ;
+	//    'LOAD' name=ID '=' path=STRING ;
 	public LoadElements getLoadAccess() {
 		return pLoad;
 	}

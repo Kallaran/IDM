@@ -9,9 +9,6 @@
     <genClasses ecoreClass="MyDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/commands"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type/name"/>
-    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Command"/>
     <genClasses ecoreClass="MyDsl.ecore#//Content">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Content/fields"/>
@@ -23,7 +20,7 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Load">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Load/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Load/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Load/path"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Print">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Print/name"/>

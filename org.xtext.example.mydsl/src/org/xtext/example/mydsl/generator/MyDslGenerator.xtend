@@ -57,7 +57,7 @@ import pandas as pd
     }
     
     private def compile(Load l) {
-		'''«l.name» = pd.read_csv('«l.path.name»')'''
+		'''«l.name» = pd.read_csv('«l.path»')'''
     }
     
     private def compile(Create c) {

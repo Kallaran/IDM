@@ -46,25 +46,25 @@ public interface Load extends Command
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Path</b></em>' containment reference.
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' containment reference.
-   * @see #setPath(Type)
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLoad_Path()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Type getPath();
+  String getPath();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' containment reference.
+   * @param value the new value of the '<em>Path</em>' attribute.
    * @see #getPath()
    * @generated
    */
-  void setPath(Type value);
+  void setPath(String value);
 
 } // Load

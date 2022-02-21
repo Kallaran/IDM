@@ -23,7 +23,6 @@ import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Print;
 import org.xtext.example.mydsl.myDsl.ToCSV;
-import org.xtext.example.mydsl.myDsl.Type;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -63,9 +62,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.TO_CSV:
 				sequence_ToCSV(context, (ToCSV) semanticObject); 
-				return; 
-			case MyDslPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -144,7 +140,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Load returns Load
 	 *
 	 * Constraint:
-	 *     (name=ID path=Type)
+	 *     (name=ID path=STRING)
 	 */
 	protected void sequence_Load(ISerializationContext context, Load semanticObject) {
 		if (errorAcceptor != null) {
@@ -155,7 +151,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLoadAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getLoadAccess().getPathTypeParserRuleCall_3_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getLoadAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
@@ -209,24 +205,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getToCSVAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getToCSVAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns Type
-	 *
-	 * Constraint:
-	 *     name=STRING
-	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.TYPE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -119,8 +119,8 @@ public class MyDslGenerator extends AbstractGenerator {
     String _name = l.getName();
     _builder.append(_name);
     _builder.append(" = pd.read_csv(\'");
-    String _name_1 = l.getPath().getName();
-    _builder.append(_name_1);
+    String _path = l.getPath();
+    _builder.append(_path);
     _builder.append("\')");
     return _builder;
   }

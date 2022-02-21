@@ -40,7 +40,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getInsertColumnAccess().getGroup(), "rule__InsertColumn__Group__0");
 			builder.put(grammarAccess.getToCSVAccess().getGroup(), "rule__ToCSV__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
-			builder.put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
 			builder.put(grammarAccess.getContentAccess().getFieldsAssignment_2(), "rule__Content__FieldsAssignment_2");
 			builder.put(grammarAccess.getCreateAccess().getPathAssignment_1(), "rule__Create__PathAssignment_1");
 			builder.put(grammarAccess.getCreateAccess().getColumnsAssignment_4(), "rule__Create__ColumnsAssignment_4");

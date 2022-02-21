@@ -86,34 +86,6 @@ public interface MyDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.TypeImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CommandImpl <em>Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,7 +93,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 2;
+  int COMMAND = 1;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -140,7 +112,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContent()
    * @generated
    */
-  int CONTENT = 3;
+  int CONTENT = 2;
 
   /**
    * The feature id for the '<em><b>Fields</b></em>' attribute list.
@@ -168,7 +140,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreate()
    * @generated
    */
-  int CREATE = 4;
+  int CREATE = 3;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -214,7 +186,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLoad()
    * @generated
    */
-  int LOAD = 5;
+  int LOAD = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -226,7 +198,7 @@ public interface MyDslPackage extends EPackage
   int LOAD__NAME = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -251,7 +223,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrint()
    * @generated
    */
-  int PRINT = 6;
+  int PRINT = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -279,7 +251,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getHead()
    * @generated
    */
-  int HEAD = 7;
+  int HEAD = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -307,7 +279,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInsertColumn()
    * @generated
    */
-  int INSERT_COLUMN = 8;
+  int INSERT_COLUMN = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -344,7 +316,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getToCSV()
    * @generated
    */
-  int TO_CSV = 9;
+  int TO_CSV = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -394,27 +366,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getModel_Commands();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Type
-   * @generated
-   */
-  EClass getType();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Type#getName()
-   * @see #getType()
-   * @generated
-   */
-  EAttribute getType_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Command <em>Command</em>}'.
@@ -512,15 +463,15 @@ public interface MyDslPackage extends EPackage
   EAttribute getLoad_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Load#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @return the meta object for the attribute '<em>Path</em>'.
    * @see org.xtext.example.mydsl.myDsl.Load#getPath()
    * @see #getLoad()
    * @generated
    */
-  EReference getLoad_Path();
+  EAttribute getLoad_Path();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Print <em>Print</em>}'.
@@ -670,24 +621,6 @@ public interface MyDslPackage extends EPackage
     EReference MODEL__COMMANDS = eINSTANCE.getModel_Commands();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.TypeImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType()
-     * @generated
-     */
-    EClass TYPE = eINSTANCE.getType();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CommandImpl <em>Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -768,12 +701,12 @@ public interface MyDslPackage extends EPackage
     EAttribute LOAD__NAME = eINSTANCE.getLoad_Name();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOAD__PATH = eINSTANCE.getLoad_Path();
+    EAttribute LOAD__PATH = eINSTANCE.getLoad_Path();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.PrintImpl <em>Print</em>}' class.

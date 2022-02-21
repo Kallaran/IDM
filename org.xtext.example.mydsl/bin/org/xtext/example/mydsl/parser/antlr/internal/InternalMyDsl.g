@@ -96,41 +96,6 @@ ruleModel returns [EObject current=null]
 	)*
 ;
 
-// Entry rule entryRuleType
-entryRuleType returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTypeRule()); }
-	iv_ruleType=ruleType
-	{ $current=$iv_ruleType.current; }
-	EOF;
-
-// Rule Type
-ruleType returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_name_0_0=RULE_STRING
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getTypeAccess().getNameSTRINGTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getTypeRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
-			}
-		)
-	)
-;
-
 // Entry rule entryRuleCommand
 entryRuleCommand returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getCommandRule()); }
@@ -401,20 +366,19 @@ ruleLoad returns [EObject current=null]
 		}
 		(
 			(
+				lv_path_3_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getLoadAccess().getPathTypeParserRuleCall_3_0());
+					newLeafNode(lv_path_3_0, grammarAccess.getLoadAccess().getPathSTRINGTerminalRuleCall_3_0());
 				}
-				lv_path_3_0=ruleType
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLoadRule());
+						$current = createModelElement(grammarAccess.getLoadRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"path",
 						lv_path_3_0,
-						"org.xtext.example.mydsl.MyDsl.Type");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

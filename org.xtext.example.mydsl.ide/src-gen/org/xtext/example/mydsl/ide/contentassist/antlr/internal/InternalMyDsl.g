@@ -74,31 +74,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleType
-entryRuleType
-:
-{ before(grammarAccess.getTypeRule()); }
-	 ruleType
-{ after(grammarAccess.getTypeRule()); } 
-	 EOF 
-;
-
-// Rule Type
-ruleType 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getTypeAccess().getNameAssignment()); }
-		(rule__Type__NameAssignment)
-		{ after(grammarAccess.getTypeAccess().getNameAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleCommand
 entryRuleCommand
 :
@@ -1169,21 +1144,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Type__NameAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getTypeAccess().getNameSTRINGTerminalRuleCall_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getTypeAccess().getNameSTRINGTerminalRuleCall_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__Content__FieldsAssignment_2
 	@init {
 		int stackSize = keepStackSize();
@@ -1265,9 +1225,9 @@ rule__Load__PathAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getLoadAccess().getPathTypeParserRuleCall_3_0()); }
-		ruleType
-		{ after(grammarAccess.getLoadAccess().getPathTypeParserRuleCall_3_0()); }
+		{ before(grammarAccess.getLoadAccess().getPathSTRINGTerminalRuleCall_3_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getLoadAccess().getPathSTRINGTerminalRuleCall_3_0()); }
 	)
 ;
 finally {

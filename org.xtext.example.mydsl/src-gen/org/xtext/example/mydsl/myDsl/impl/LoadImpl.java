@@ -4,16 +4,13 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,14 +49,24 @@ public class LoadImpl extends CommandImpl implements Load
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPath()
    * @generated
    * @ordered
    */
-  protected Type path;
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +120,7 @@ public class LoadImpl extends CommandImpl implements Load
    * @generated
    */
   @Override
-  public Type getPath()
+  public String getPath()
   {
     return path;
   }
@@ -123,54 +130,13 @@ public class LoadImpl extends CommandImpl implements Load
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPath(Type newPath, NotificationChain msgs)
+  @Override
+  public void setPath(String newPath)
   {
-    Type oldPath = path;
+    String oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.LOAD__PATH, oldPath, newPath);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPath(Type newPath)
-  {
-    if (newPath != path)
-    {
-      NotificationChain msgs = null;
-      if (path != null)
-        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LOAD__PATH, null, msgs);
-      if (newPath != null)
-        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LOAD__PATH, null, msgs);
-      msgs = basicSetPath(newPath, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LOAD__PATH, newPath, newPath));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyDslPackage.LOAD__PATH:
-        return basicSetPath(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LOAD__PATH, oldPath, path));
   }
 
   /**
@@ -205,7 +171,7 @@ public class LoadImpl extends CommandImpl implements Load
         setName((String)newValue);
         return;
       case MyDslPackage.LOAD__PATH:
-        setPath((Type)newValue);
+        setPath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +191,7 @@ public class LoadImpl extends CommandImpl implements Load
         setName(NAME_EDEFAULT);
         return;
       case MyDslPackage.LOAD__PATH:
-        setPath((Type)null);
+        setPath(PATH_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -244,7 +210,7 @@ public class LoadImpl extends CommandImpl implements Load
       case MyDslPackage.LOAD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.LOAD__PATH:
-        return path != null;
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
     return super.eIsSet(featureID);
   }
@@ -262,6 +228,8 @@ public class LoadImpl extends CommandImpl implements Load
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", path: ");
+    result.append(path);
     result.append(')');
     return result.toString();
   }

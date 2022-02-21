@@ -66,7 +66,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.MODEL: return createModel();
-      case MyDslPackage.TYPE: return createType();
       case MyDslPackage.COMMAND: return createCommand();
       case MyDslPackage.CONTENT: return createContent();
       case MyDslPackage.CREATE: return createCreate();
@@ -90,18 +89,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Type createType()
-  {
-    TypeImpl type = new TypeImpl();
-    return type;
   }
 
   /**
