@@ -72,7 +72,7 @@ TO CSV file "villes.csv"
 ```
 
 #### `DropColumn`
-Permet de supprimer une ou plusiseurs colonnes
+Permet de supprimer une ou plusiseurs colonnes.
 ```
 DROP COLUMN <nom_variable> "<col1>" "<col2>" ...
 ```
@@ -81,3 +81,12 @@ Exemple :
 DROP COLUMN file "population"
 ```
 
+#### `DropRow`
+Permet de supprimer une ou plusiseurs lignes.
+```
+DROP ROW <nom_variable> "<index_row1>" "<index_row2>" ...
+```
+Exemple :
+```
+DROP ROW file "0"
+```
