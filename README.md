@@ -70,3 +70,14 @@ Exemple :
 ```
 TO CSV file "villes.csv"
 ```
+
+#### `DropColumn`
+Permet de supprimer une ou plusiseurs colonnes
+```
+DROP COLUMN <nom_variable> "<col1>" "<col2>" ...
+```
+Exemple :
+```
+DROP COLUMN file "population"
+```
+
