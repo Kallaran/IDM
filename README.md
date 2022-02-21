@@ -16,12 +16,29 @@ Notre langage est constitué d'un ensemble de commandes qu'il suffit d'utiliser 
 Créé un fichier CSV avec nom des colonnes et données contenues.
 
 ```
-CREATE "<nom_fichier>" : ["<nom_col1>" "<nom_col2>" ... ] : [["<row1_col1>" "<row1_col2>" ... ] ["<row2_col1>" "<row2_col2>" ... ] ...]
+CREATE "<nom_fichier.csv>" : ["<nom_col1>" "<nom_col2>" ... ] : [["<row1_col1>" "<row1_col2>" ... ] ["<row2_col1>" "<row2_col2>" ... ] ...]
 ```
 
 Exemple :
 
 
 ```
-CREATE "villes" : ["ville" "population" ] : [["rennes" "65623444"]["lyon" "5223331"]]
+CREATE "villes.csv" : ["ville" "population" ] : [["rennes" "65623444"]["lyon" "5223331"]]
+```
+
+
+
+#### `Load`
+
+Permet de charger dans une variable le contenu d'un fichier CSV.
+
+```
+LOAD <nom_variable> = "<nom_fichier.csv>"
+```
+
+Exemple :
+
+
+```
+LOAD file = "henry.csv"
 ```
