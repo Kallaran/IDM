@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +16,7 @@ package org.xtext.example.mydsl.myDsl;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.InsertColumn#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.InsertColumn#getColumn <em>Column</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.InsertColumn#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getInsertColumn()
@@ -66,5 +68,17 @@ public interface InsertColumn extends Command
    * @generated
    */
   void setColumn(String value);
+
+  /**
+   * Returns the value of the '<em><b>Content</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getInsertColumn_Content()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getContent();
 
 } // InsertColumn

@@ -7,7 +7,7 @@ Model:
 
 	
 Command:
-	Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow;
+	Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow | InsertRow | GetColumn | GetRow;
 
 Content:
 	{Content} '['(fields+=STRING)* ']';
@@ -25,7 +25,7 @@ Head:
 	'HEAD' name=ID ;
 	
 InsertColumn:
-	'INSERT' 'COLUMN' name=ID column=STRING;
+	'INSERT' 'COLUMN' name=ID column=STRING ':' (content+=STRING)+;
 	
 ToCSV:
 	'TO' 'CSV' name=ID path=STRING;
@@ -35,3 +35,14 @@ DropColumn:
 
 DropRow:
 	'DROP' 'ROW' name=ID (rows+=STRING)+;
+
+InsertRow:
+    'INSERT' 'ROW' name=ID (rows+=STRING)+;
+    
+GetColumn:
+    'GET' 'COLUMN' name=ID column=STRING;
+    
+GetRow:
+    'GET' 'ROW' name=ID index=INT;
+
+

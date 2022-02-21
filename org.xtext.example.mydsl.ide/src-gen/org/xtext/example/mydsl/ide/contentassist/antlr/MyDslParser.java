@@ -41,6 +41,9 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getToCSVAccess().getGroup(), "rule__ToCSV__Group__0");
 			builder.put(grammarAccess.getDropColumnAccess().getGroup(), "rule__DropColumn__Group__0");
 			builder.put(grammarAccess.getDropRowAccess().getGroup(), "rule__DropRow__Group__0");
+			builder.put(grammarAccess.getInsertRowAccess().getGroup(), "rule__InsertRow__Group__0");
+			builder.put(grammarAccess.getGetColumnAccess().getGroup(), "rule__GetColumn__Group__0");
+			builder.put(grammarAccess.getGetRowAccess().getGroup(), "rule__GetRow__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
 			builder.put(grammarAccess.getContentAccess().getFieldsAssignment_2(), "rule__Content__FieldsAssignment_2");
 			builder.put(grammarAccess.getCreateAccess().getPathAssignment_1(), "rule__Create__PathAssignment_1");
@@ -52,12 +55,19 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHeadAccess().getNameAssignment_1(), "rule__Head__NameAssignment_1");
 			builder.put(grammarAccess.getInsertColumnAccess().getNameAssignment_2(), "rule__InsertColumn__NameAssignment_2");
 			builder.put(grammarAccess.getInsertColumnAccess().getColumnAssignment_3(), "rule__InsertColumn__ColumnAssignment_3");
+			builder.put(grammarAccess.getInsertColumnAccess().getContentAssignment_5(), "rule__InsertColumn__ContentAssignment_5");
 			builder.put(grammarAccess.getToCSVAccess().getNameAssignment_2(), "rule__ToCSV__NameAssignment_2");
 			builder.put(grammarAccess.getToCSVAccess().getPathAssignment_3(), "rule__ToCSV__PathAssignment_3");
 			builder.put(grammarAccess.getDropColumnAccess().getNameAssignment_2(), "rule__DropColumn__NameAssignment_2");
 			builder.put(grammarAccess.getDropColumnAccess().getColumnsAssignment_3(), "rule__DropColumn__ColumnsAssignment_3");
 			builder.put(grammarAccess.getDropRowAccess().getNameAssignment_2(), "rule__DropRow__NameAssignment_2");
 			builder.put(grammarAccess.getDropRowAccess().getRowsAssignment_3(), "rule__DropRow__RowsAssignment_3");
+			builder.put(grammarAccess.getInsertRowAccess().getNameAssignment_2(), "rule__InsertRow__NameAssignment_2");
+			builder.put(grammarAccess.getInsertRowAccess().getRowsAssignment_3(), "rule__InsertRow__RowsAssignment_3");
+			builder.put(grammarAccess.getGetColumnAccess().getNameAssignment_2(), "rule__GetColumn__NameAssignment_2");
+			builder.put(grammarAccess.getGetColumnAccess().getColumnAssignment_3(), "rule__GetColumn__ColumnAssignment_3");
+			builder.put(grammarAccess.getGetRowAccess().getNameAssignment_2(), "rule__GetRow__NameAssignment_2");
+			builder.put(grammarAccess.getGetRowAccess().getIndexAssignment_3(), "rule__GetRow__IndexAssignment_3");
 		}
 	}
 	

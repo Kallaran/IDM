@@ -300,13 +300,22 @@ public interface MyDslPackage extends EPackage
   int INSERT_COLUMN__COLUMN = COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Content</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_COLUMN__CONTENT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Insert Column</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSERT_COLUMN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int INSERT_COLUMN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ToCSVImpl <em>To CSV</em>}' class.
@@ -418,6 +427,117 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int DROP_ROW_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.InsertRowImpl <em>Insert Row</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.InsertRowImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInsertRow()
+   * @generated
+   */
+  int INSERT_ROW = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_ROW__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Rows</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_ROW__ROWS = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Insert Row</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSERT_ROW_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.GetColumnImpl <em>Get Column</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.GetColumnImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGetColumn()
+   * @generated
+   */
+  int GET_COLUMN = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_COLUMN__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Column</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_COLUMN__COLUMN = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Get Column</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_COLUMN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.GetRowImpl <em>Get Row</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.GetRowImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGetRow()
+   * @generated
+   */
+  int GET_ROW = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_ROW__NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_ROW__INDEX = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Get Row</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_ROW_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
 
   /**
@@ -622,6 +742,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getInsertColumn_Column();
 
   /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.InsertColumn#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Content</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertColumn#getContent()
+   * @see #getInsertColumn()
+   * @generated
+   */
+  EAttribute getInsertColumn_Content();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ToCSV <em>To CSV</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -716,6 +847,102 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getDropRow_Rows();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.InsertRow <em>Insert Row</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Insert Row</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertRow
+   * @generated
+   */
+  EClass getInsertRow();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.InsertRow#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertRow#getName()
+   * @see #getInsertRow()
+   * @generated
+   */
+  EAttribute getInsertRow_Name();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.InsertRow#getRows <em>Rows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Rows</em>'.
+   * @see org.xtext.example.mydsl.myDsl.InsertRow#getRows()
+   * @see #getInsertRow()
+   * @generated
+   */
+  EAttribute getInsertRow_Rows();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.GetColumn <em>Get Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Get Column</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetColumn
+   * @generated
+   */
+  EClass getGetColumn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GetColumn#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetColumn#getName()
+   * @see #getGetColumn()
+   * @generated
+   */
+  EAttribute getGetColumn_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GetColumn#getColumn <em>Column</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Column</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetColumn#getColumn()
+   * @see #getGetColumn()
+   * @generated
+   */
+  EAttribute getGetColumn_Column();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.GetRow <em>Get Row</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Get Row</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetRow
+   * @generated
+   */
+  EClass getGetRow();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GetRow#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetRow#getName()
+   * @see #getGetRow()
+   * @generated
+   */
+  EAttribute getGetRow_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GetRow#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Index</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GetRow#getIndex()
+   * @see #getGetRow()
+   * @generated
+   */
+  EAttribute getGetRow_Index();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -909,6 +1136,14 @@ public interface MyDslPackage extends EPackage
     EAttribute INSERT_COLUMN__COLUMN = eINSTANCE.getInsertColumn_Column();
 
     /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_COLUMN__CONTENT = eINSTANCE.getInsertColumn_Content();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ToCSVImpl <em>To CSV</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -985,6 +1220,84 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute DROP_ROW__ROWS = eINSTANCE.getDropRow_Rows();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.InsertRowImpl <em>Insert Row</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.InsertRowImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInsertRow()
+     * @generated
+     */
+    EClass INSERT_ROW = eINSTANCE.getInsertRow();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_ROW__NAME = eINSTANCE.getInsertRow_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Rows</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSERT_ROW__ROWS = eINSTANCE.getInsertRow_Rows();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GetColumnImpl <em>Get Column</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.GetColumnImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGetColumn()
+     * @generated
+     */
+    EClass GET_COLUMN = eINSTANCE.getGetColumn();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_COLUMN__NAME = eINSTANCE.getGetColumn_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_COLUMN__COLUMN = eINSTANCE.getGetColumn_Column();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GetRowImpl <em>Get Row</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.GetRowImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGetRow()
+     * @generated
+     */
+    EClass GET_ROW = eINSTANCE.getGetRow();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_ROW__NAME = eINSTANCE.getGetRow_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_ROW__INDEX = eINSTANCE.getGetRow_Index();
 
   }
 

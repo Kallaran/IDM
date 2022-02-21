@@ -31,6 +31,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//InsertColumn">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertColumn/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertColumn/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertColumn/content"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ToCSV">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ToCSV/name"/>
@@ -43,6 +44,18 @@
     <genClasses ecoreClass="MyDsl.ecore#//DropRow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DropRow/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//DropRow/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//InsertRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertRow/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//InsertRow/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//GetColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GetColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GetColumn/column"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//GetRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GetRow/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GetRow/index"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

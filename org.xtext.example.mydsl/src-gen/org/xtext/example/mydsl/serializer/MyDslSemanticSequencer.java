@@ -18,8 +18,11 @@ import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.DropColumn;
 import org.xtext.example.mydsl.myDsl.DropRow;
+import org.xtext.example.mydsl.myDsl.GetColumn;
+import org.xtext.example.mydsl.myDsl.GetRow;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
+import org.xtext.example.mydsl.myDsl.InsertRow;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -53,11 +56,20 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.DROP_ROW:
 				sequence_DropRow(context, (DropRow) semanticObject); 
 				return; 
+			case MyDslPackage.GET_COLUMN:
+				sequence_GetColumn(context, (GetColumn) semanticObject); 
+				return; 
+			case MyDslPackage.GET_ROW:
+				sequence_GetRow(context, (GetRow) semanticObject); 
+				return; 
 			case MyDslPackage.HEAD:
 				sequence_Head(context, (Head) semanticObject); 
 				return; 
 			case MyDslPackage.INSERT_COLUMN:
 				sequence_InsertColumn(context, (InsertColumn) semanticObject); 
+				return; 
+			case MyDslPackage.INSERT_ROW:
+				sequence_InsertRow(context, (InsertRow) semanticObject); 
 				return; 
 			case MyDslPackage.LOAD:
 				sequence_Load(context, (Load) semanticObject); 
@@ -129,6 +141,50 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Command returns GetColumn
+	 *     GetColumn returns GetColumn
+	 *
+	 * Constraint:
+	 *     (name=ID column=STRING)
+	 */
+	protected void sequence_GetColumn(ISerializationContext context, GetColumn semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GET_COLUMN__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GET_COLUMN__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GET_COLUMN__COLUMN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GET_COLUMN__COLUMN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGetColumnAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGetColumnAccess().getColumnSTRINGTerminalRuleCall_3_0(), semanticObject.getColumn());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns GetRow
+	 *     GetRow returns GetRow
+	 *
+	 * Constraint:
+	 *     (name=ID index=INT)
+	 */
+	protected void sequence_GetRow(ISerializationContext context, GetRow semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GET_ROW__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GET_ROW__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GET_ROW__INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GET_ROW__INDEX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGetRowAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGetRowAccess().getIndexINTTerminalRuleCall_3_0(), semanticObject.getIndex());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Command returns Head
 	 *     Head returns Head
 	 *
@@ -152,19 +208,23 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     InsertColumn returns InsertColumn
 	 *
 	 * Constraint:
-	 *     (name=ID column=STRING)
+	 *     (name=ID column=STRING content+=STRING+)
 	 */
 	protected void sequence_InsertColumn(ISerializationContext context, InsertColumn semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__NAME));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__COLUMN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.INSERT_COLUMN__COLUMN));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInsertColumnAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getInsertColumnAccess().getColumnSTRINGTerminalRuleCall_3_0(), semanticObject.getColumn());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns InsertRow
+	 *     InsertRow returns InsertRow
+	 *
+	 * Constraint:
+	 *     (name=ID rows+=STRING+)
+	 */
+	protected void sequence_InsertRow(ISerializationContext context, InsertRow semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

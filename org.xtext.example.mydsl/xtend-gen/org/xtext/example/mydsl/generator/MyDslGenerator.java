@@ -17,8 +17,11 @@ import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.DropColumn;
 import org.xtext.example.mydsl.myDsl.DropRow;
+import org.xtext.example.mydsl.myDsl.GetColumn;
+import org.xtext.example.mydsl.myDsl.GetRow;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
+import org.xtext.example.mydsl.myDsl.InsertRow;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Print;
 import org.xtext.example.mydsl.myDsl.ToCSV;
@@ -118,6 +121,30 @@ public class MyDslGenerator extends AbstractGenerator {
       }
     }
     if (!_matched) {
+      String _name_8 = c.eClass().getName();
+      boolean _tripleEquals_8 = (_name_8 == "InsertRow");
+      if (_tripleEquals_8) {
+        _matched=true;
+        _switchResult = this.compile(((InsertRow) c));
+      }
+    }
+    if (!_matched) {
+      String _name_9 = c.eClass().getName();
+      boolean _tripleEquals_9 = (_name_9 == "GetColumn");
+      if (_tripleEquals_9) {
+        _matched=true;
+        _switchResult = this.compile(((GetColumn) c));
+      }
+    }
+    if (!_matched) {
+      String _name_10 = c.eClass().getName();
+      boolean _tripleEquals_10 = (_name_10 == "GetRow");
+      if (_tripleEquals_10) {
+        _matched=true;
+        _switchResult = this.compile(((GetRow) c));
+      }
+    }
+    if (!_matched) {
       _switchResult = "Error";
     }
     return _switchResult;
@@ -199,14 +226,26 @@ public class MyDslGenerator extends AbstractGenerator {
   }
   
   private CharSequence compile(final InsertColumn i) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = i.getName();
-    _builder.append(_name);
-    _builder.append("[\"");
-    String _column = i.getColumn();
-    _builder.append(_column);
-    _builder.append("\"] = \"\" ");
-    return _builder;
+    CharSequence _xblockexpression = null;
+    {
+      String columns = "";
+      EList<String> _content = i.getContent();
+      for (final String cont : _content) {
+        String _columns = columns;
+        columns = (_columns + (("\'" + cont) + "\', "));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = i.getName();
+      _builder.append(_name);
+      _builder.append("[\"");
+      String _column = i.getColumn();
+      _builder.append(_column);
+      _builder.append("\"] = ");
+      _builder.append(columns);
+      _builder.append(" ");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
   
   private CharSequence compile(final ToCSV i) {
@@ -258,5 +297,62 @@ public class MyDslGenerator extends AbstractGenerator {
       _xblockexpression = _builder;
     }
     return _xblockexpression;
+  }
+  
+  private CharSequence compile(final InsertRow i) {
+    CharSequence _xblockexpression = null;
+    {
+      String rows = "";
+      EList<String> _rows = i.getRows();
+      for (final String row : _rows) {
+        String _rows_1 = rows;
+        rows = (_rows_1 + (("\'" + row) + "\', "));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("row = pd.Series([");
+      _builder.append(rows);
+      _builder.append("])");
+      _builder.newLineIfNotEmpty();
+      _builder.append("dfRow = pd.DataFrame([row])");
+      _builder.newLine();
+      _builder.append("dfRow.columns = list(");
+      String _name = i.getName();
+      _builder.append(_name);
+      _builder.append(".columns)");
+      _builder.newLineIfNotEmpty();
+      String _name_1 = i.getName();
+      _builder.append(_name_1);
+      _builder.append(" = pd.concat([");
+      String _name_2 = i.getName();
+      _builder.append(_name_2);
+      _builder.append(", dfRow], ignore_index=True)");
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  private CharSequence compile(final GetColumn i) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("print(");
+    String _name = i.getName();
+    _builder.append(_name);
+    _builder.append("[\"");
+    String _column = i.getColumn();
+    _builder.append(_column);
+    _builder.append("\"])");
+    return _builder;
+  }
+  
+  private CharSequence compile(final GetRow i) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("print(");
+    String _name = i.getName();
+    _builder.append(_name);
+    _builder.append(".loc[");
+    int _index = i.getIndex();
+    _builder.append(_index);
+    _builder.append("])");
+    return _builder;
   }
 }

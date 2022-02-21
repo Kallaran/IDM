@@ -3,11 +3,17 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -22,6 +28,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl#getColumn <em>Column</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.InsertColumnImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +74,16 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
    * @ordered
    */
   protected String column = COLUMN_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> content;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +162,21 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
    * @generated
    */
   @Override
+  public EList<String> getContent()
+  {
+    if (content == null)
+    {
+      content = new EDataTypeEList<String>(String.class, this, MyDslPackage.INSERT_COLUMN__CONTENT);
+    }
+    return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -153,6 +185,8 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
         return getName();
       case MyDslPackage.INSERT_COLUMN__COLUMN:
         return getColumn();
+      case MyDslPackage.INSERT_COLUMN__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -162,6 +196,7 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -172,6 +207,10 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
         return;
       case MyDslPackage.INSERT_COLUMN__COLUMN:
         setColumn((String)newValue);
+        return;
+      case MyDslPackage.INSERT_COLUMN__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,6 +232,9 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
       case MyDslPackage.INSERT_COLUMN__COLUMN:
         setColumn(COLUMN_EDEFAULT);
         return;
+      case MyDslPackage.INSERT_COLUMN__CONTENT:
+        getContent().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -211,6 +253,8 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.INSERT_COLUMN__COLUMN:
         return COLUMN_EDEFAULT == null ? column != null : !COLUMN_EDEFAULT.equals(column);
+      case MyDslPackage.INSERT_COLUMN__CONTENT:
+        return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -230,6 +274,8 @@ public class InsertColumnImpl extends CommandImpl implements InsertColumn
     result.append(name);
     result.append(", column: ");
     result.append(column);
+    result.append(", content: ");
+    result.append(content);
     result.append(')');
     return result.toString();
   }

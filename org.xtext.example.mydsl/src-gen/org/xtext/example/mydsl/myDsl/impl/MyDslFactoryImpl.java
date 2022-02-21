@@ -76,6 +76,9 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.TO_CSV: return createToCSV();
       case MyDslPackage.DROP_COLUMN: return createDropColumn();
       case MyDslPackage.DROP_ROW: return createDropRow();
+      case MyDslPackage.INSERT_ROW: return createInsertRow();
+      case MyDslPackage.GET_COLUMN: return createGetColumn();
+      case MyDslPackage.GET_ROW: return createGetRow();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -211,6 +214,42 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     DropRowImpl dropRow = new DropRowImpl();
     return dropRow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InsertRow createInsertRow()
+  {
+    InsertRowImpl insertRow = new InsertRowImpl();
+    return insertRow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GetColumn createGetColumn()
+  {
+    GetColumnImpl getColumn = new GetColumnImpl();
+    return getColumn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GetRow createGetRow()
+  {
+    GetRowImpl getRow = new GetRowImpl();
+    return getRow;
   }
 
   /**

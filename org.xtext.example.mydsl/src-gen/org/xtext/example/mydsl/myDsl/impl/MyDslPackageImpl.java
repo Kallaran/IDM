@@ -15,8 +15,11 @@ import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.DropColumn;
 import org.xtext.example.mydsl.myDsl.DropRow;
+import org.xtext.example.mydsl.myDsl.GetColumn;
+import org.xtext.example.mydsl.myDsl.GetRow;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
+import org.xtext.example.mydsl.myDsl.InsertRow;
 import org.xtext.example.mydsl.myDsl.Load;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
@@ -108,6 +111,27 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass dropRowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass insertRowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass getColumnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass getRowEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -387,6 +411,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getInsertColumn_Content()
+  {
+    return (EAttribute)insertColumnEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getToCSV()
   {
     return toCSVEClass;
@@ -486,6 +521,105 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getInsertRow()
+  {
+    return insertRowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInsertRow_Name()
+  {
+    return (EAttribute)insertRowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInsertRow_Rows()
+  {
+    return (EAttribute)insertRowEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGetColumn()
+  {
+    return getColumnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGetColumn_Name()
+  {
+    return (EAttribute)getColumnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGetColumn_Column()
+  {
+    return (EAttribute)getColumnEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGetRow()
+  {
+    return getRowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGetRow_Name()
+  {
+    return (EAttribute)getRowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGetRow_Index()
+  {
+    return (EAttribute)getRowEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public MyDslFactory getMyDslFactory()
   {
     return (MyDslFactory)getEFactoryInstance();
@@ -537,6 +671,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     insertColumnEClass = createEClass(INSERT_COLUMN);
     createEAttribute(insertColumnEClass, INSERT_COLUMN__NAME);
     createEAttribute(insertColumnEClass, INSERT_COLUMN__COLUMN);
+    createEAttribute(insertColumnEClass, INSERT_COLUMN__CONTENT);
 
     toCSVEClass = createEClass(TO_CSV);
     createEAttribute(toCSVEClass, TO_CSV__NAME);
@@ -549,6 +684,18 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     dropRowEClass = createEClass(DROP_ROW);
     createEAttribute(dropRowEClass, DROP_ROW__NAME);
     createEAttribute(dropRowEClass, DROP_ROW__ROWS);
+
+    insertRowEClass = createEClass(INSERT_ROW);
+    createEAttribute(insertRowEClass, INSERT_ROW__NAME);
+    createEAttribute(insertRowEClass, INSERT_ROW__ROWS);
+
+    getColumnEClass = createEClass(GET_COLUMN);
+    createEAttribute(getColumnEClass, GET_COLUMN__NAME);
+    createEAttribute(getColumnEClass, GET_COLUMN__COLUMN);
+
+    getRowEClass = createEClass(GET_ROW);
+    createEAttribute(getRowEClass, GET_ROW__NAME);
+    createEAttribute(getRowEClass, GET_ROW__INDEX);
   }
 
   /**
@@ -588,6 +735,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     toCSVEClass.getESuperTypes().add(this.getCommand());
     dropColumnEClass.getESuperTypes().add(this.getCommand());
     dropRowEClass.getESuperTypes().add(this.getCommand());
+    insertRowEClass.getESuperTypes().add(this.getCommand());
+    getColumnEClass.getESuperTypes().add(this.getCommand());
+    getRowEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -616,6 +766,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(insertColumnEClass, InsertColumn.class, "InsertColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInsertColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, InsertColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInsertColumn_Column(), ecorePackage.getEString(), "column", null, 0, 1, InsertColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInsertColumn_Content(), ecorePackage.getEString(), "content", null, 0, -1, InsertColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(toCSVEClass, ToCSV.class, "ToCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToCSV_Name(), ecorePackage.getEString(), "name", null, 0, 1, ToCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -628,6 +779,18 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(dropRowEClass, DropRow.class, "DropRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDropRow_Name(), ecorePackage.getEString(), "name", null, 0, 1, DropRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDropRow_Rows(), ecorePackage.getEString(), "rows", null, 0, -1, DropRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(insertRowEClass, InsertRow.class, "InsertRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInsertRow_Name(), ecorePackage.getEString(), "name", null, 0, 1, InsertRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInsertRow_Rows(), ecorePackage.getEString(), "rows", null, 0, -1, InsertRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(getColumnEClass, GetColumn.class, "GetColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGetColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, GetColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGetColumn_Column(), ecorePackage.getEString(), "column", null, 0, 1, GetColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(getRowEClass, GetRow.class, "GetRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGetRow_Name(), ecorePackage.getEString(), "name", null, 0, 1, GetRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGetRow_Index(), ecorePackage.getEInt(), "index", null, 0, 1, GetRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

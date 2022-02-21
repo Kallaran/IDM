@@ -16,6 +16,9 @@ import org.xtext.example.mydsl.myDsl.InsertColumn
 import org.xtext.example.mydsl.myDsl.ToCSV
 import org.xtext.example.mydsl.myDsl.DropColumn
 import org.xtext.example.mydsl.myDsl.DropRow
+import org.xtext.example.mydsl.myDsl.InsertRow
+import org.xtext.example.mydsl.myDsl.GetColumn
+import org.xtext.example.mydsl.myDsl.GetRow
 
 /**
  * Generates code from your model files on save.
@@ -51,6 +54,9 @@ import pandas as pd
   			case c.eClass().name === "ToCSV" : compile(c as ToCSV)
   			case c.eClass().name === "DropColumn" : compile(c as DropColumn)
   			case c.eClass().name === "DropRow" : compile(c as DropRow)
+  			case c.eClass().name === "InsertRow" : compile(c as InsertRow)
+  			case c.eClass().name === "GetColumn" : compile(c as GetColumn)
+  			case c.eClass().name === "GetRow" : compile(c as GetRow)
   			
   			
  			
@@ -97,7 +103,11 @@ import pandas as pd
     }
     
     private def compile(InsertColumn i) {
-    	'''«i.name»["«i.column»"] = "" '''
+	   	var String columns = "";
+        for( cont : i.content){
+            columns+= "'" + cont + "', ";
+        }
+        '''«i.name»["«i.column»"] = «columns» '''
     }
     
     private def compile(ToCSV i) {
@@ -114,7 +124,7 @@ import pandas as pd
     		
     }
     
-      private def compile(DropRow i) {
+    private def compile(DropRow i) {
     	var String rows = "";
 		for( row : i.rows){
 			rows+= row + ", ";
@@ -123,6 +133,26 @@ import pandas as pd
     		
     }
 
+ 	private def compile(InsertRow i) {
+        var String rows = "";
+        for( row : i.rows){
+            rows+= "'" + row + "', ";
+        }
+        '''
+        row = pd.Series([«rows»])
+        dfRow = pd.DataFrame([row])
+        dfRow.columns = list(«i.name».columns)
+        «i.name» = pd.concat([«i.name», dfRow], ignore_index=True)
+        '''
+    }
+     
+    private def compile(GetColumn i) {
+        '''print(«i.name»["«i.column»"])'''
+    }
+
+    private def compile(GetRow i) {
+        '''print(«i.name».loc[«i.index»])'''
+    }
     
 
 

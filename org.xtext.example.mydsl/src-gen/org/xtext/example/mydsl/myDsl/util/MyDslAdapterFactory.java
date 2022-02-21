@@ -131,6 +131,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createDropRowAdapter();
       }
       @Override
+      public Adapter caseInsertRow(InsertRow object)
+      {
+        return createInsertRowAdapter();
+      }
+      @Override
+      public Adapter caseGetColumn(GetColumn object)
+      {
+        return createGetColumnAdapter();
+      }
+      @Override
+      public Adapter caseGetRow(GetRow object)
+      {
+        return createGetRowAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -313,6 +328,51 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDropRowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.InsertRow <em>Insert Row</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.InsertRow
+   * @generated
+   */
+  public Adapter createInsertRowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.GetColumn <em>Get Column</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.GetColumn
+   * @generated
+   */
+  public Adapter createGetColumnAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.GetRow <em>Get Row</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.GetRow
+   * @generated
+   */
+  public Adapter createGetRowAdapter()
   {
     return null;
   }

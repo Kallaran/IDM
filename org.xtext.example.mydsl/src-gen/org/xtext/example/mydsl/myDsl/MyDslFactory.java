@@ -123,6 +123,33 @@ public interface MyDslFactory extends EFactory
   DropRow createDropRow();
 
   /**
+   * Returns a new object of class '<em>Insert Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Insert Row</em>'.
+   * @generated
+   */
+  InsertRow createInsertRow();
+
+  /**
+   * Returns a new object of class '<em>Get Column</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Get Column</em>'.
+   * @generated
+   */
+  GetColumn createGetColumn();
+
+  /**
+   * Returns a new object of class '<em>Get Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Get Row</em>'.
+   * @generated
+   */
+  GetRow createGetRow();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
