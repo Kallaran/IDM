@@ -41,13 +41,32 @@ Exemple :
 PRINT "un message"
 ```
 
-
 #### `Head`
 Permet d'afficher dans la sortie standard les 5 premières lignes d'un CSV préalablement chargé dans une variable.
 ```
-HEAD <nom_variable>"
+HEAD <nom_variable>
 ```
 Exemple :
 ```
 HEAD file
+```
+
+#### `InsertColumn`
+Permet de rajouter une colonne à un CSV chargé dans une variable.
+```
+INSERT COLUMN <nom_variable> "<nom_colonne>"
+```
+Exemple :
+```
+INSERT COLUMN file "maire"
+```
+
+#### `ToCSV`
+Permet de sauvegarder le contenu d'une variable dans un fichier CSV.
+```
+TO CSV <nom_variable> "<nom_fichier.csv>"
+```
+Exemple :
+```
+TO CSV file "villes.csv"
 ```
