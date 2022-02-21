@@ -299,6 +299,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleDropRow
+entryRuleDropRow
+:
+{ before(grammarAccess.getDropRowRule()); }
+	 ruleDropRow
+{ after(grammarAccess.getDropRowRule()); } 
+	 EOF 
+;
+
+// Rule DropRow
+ruleDropRow 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getDropRowAccess().getGroup()); }
+		(rule__DropRow__Group__0)
+		{ after(grammarAccess.getDropRowAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Command__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -344,6 +369,12 @@ rule__Command__Alternatives
 		{ before(grammarAccess.getCommandAccess().getDropColumnParserRuleCall_6()); }
 		ruleDropColumn
 		{ after(grammarAccess.getCommandAccess().getDropColumnParserRuleCall_6()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getCommandAccess().getDropRowParserRuleCall_7()); }
+		ruleDropRow
+		{ after(grammarAccess.getCommandAccess().getDropRowParserRuleCall_7()); }
 	)
 ;
 finally {
@@ -1275,6 +1306,121 @@ finally {
 }
 
 
+rule__DropRow__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropRow__Group__0__Impl
+	rule__DropRow__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropRowAccess().getDROPKeyword_0()); }
+	'DROP'
+	{ after(grammarAccess.getDropRowAccess().getDROPKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropRow__Group__1__Impl
+	rule__DropRow__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropRowAccess().getROWKeyword_1()); }
+	'ROW'
+	{ after(grammarAccess.getDropRowAccess().getROWKeyword_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropRow__Group__2__Impl
+	rule__DropRow__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDropRowAccess().getNameAssignment_2()); }
+	(rule__DropRow__NameAssignment_2)
+	{ after(grammarAccess.getDropRowAccess().getNameAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DropRow__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	(
+		{ before(grammarAccess.getDropRowAccess().getRowsAssignment_3()); }
+		(rule__DropRow__RowsAssignment_3)
+		{ after(grammarAccess.getDropRowAccess().getRowsAssignment_3()); }
+	)
+	(
+		{ before(grammarAccess.getDropRowAccess().getRowsAssignment_3()); }
+		(rule__DropRow__RowsAssignment_3)*
+		{ after(grammarAccess.getDropRowAccess().getRowsAssignment_3()); }
+	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Model__CommandsAssignment
 	@init {
 		int stackSize = keepStackSize();
@@ -1494,6 +1640,36 @@ rule__DropColumn__ColumnsAssignment_3
 		{ before(grammarAccess.getDropColumnAccess().getColumnsSTRINGTerminalRuleCall_3_0()); }
 		RULE_STRING
 		{ after(grammarAccess.getDropColumnAccess().getColumnsSTRINGTerminalRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__NameAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDropRowAccess().getNameIDTerminalRuleCall_2_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDropRowAccess().getNameIDTerminalRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DropRow__RowsAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDropRowAccess().getRowsSTRINGTerminalRuleCall_3_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getDropRowAccess().getRowsSTRINGTerminalRuleCall_3_0()); }
 	)
 ;
 finally {

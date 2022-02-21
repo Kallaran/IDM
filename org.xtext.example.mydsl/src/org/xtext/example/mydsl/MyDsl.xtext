@@ -7,7 +7,7 @@ Model:
 
 	
 Command:
-	Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn;
+	Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow;
 
 Content:
 	{Content} '['(fields+=STRING)* ']';
@@ -32,3 +32,6 @@ ToCSV:
 
 DropColumn:
 	'DROP' 'COLUMN' name=ID (columns+=STRING)+;
+
+DropRow:
+	'DROP' 'ROW' name=ID (rows+=STRING)+;

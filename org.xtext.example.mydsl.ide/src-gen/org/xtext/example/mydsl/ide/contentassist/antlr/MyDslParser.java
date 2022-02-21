@@ -40,6 +40,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getInsertColumnAccess().getGroup(), "rule__InsertColumn__Group__0");
 			builder.put(grammarAccess.getToCSVAccess().getGroup(), "rule__ToCSV__Group__0");
 			builder.put(grammarAccess.getDropColumnAccess().getGroup(), "rule__DropColumn__Group__0");
+			builder.put(grammarAccess.getDropRowAccess().getGroup(), "rule__DropRow__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
 			builder.put(grammarAccess.getContentAccess().getFieldsAssignment_2(), "rule__Content__FieldsAssignment_2");
 			builder.put(grammarAccess.getCreateAccess().getPathAssignment_1(), "rule__Create__PathAssignment_1");
@@ -55,6 +56,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getToCSVAccess().getPathAssignment_3(), "rule__ToCSV__PathAssignment_3");
 			builder.put(grammarAccess.getDropColumnAccess().getNameAssignment_2(), "rule__DropColumn__NameAssignment_2");
 			builder.put(grammarAccess.getDropColumnAccess().getColumnsAssignment_3(), "rule__DropColumn__ColumnsAssignment_3");
+			builder.put(grammarAccess.getDropRowAccess().getNameAssignment_2(), "rule__DropRow__NameAssignment_2");
+			builder.put(grammarAccess.getDropRowAccess().getRowsAssignment_3(), "rule__DropRow__RowsAssignment_3");
 		}
 	}
 	

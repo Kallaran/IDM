@@ -48,12 +48,13 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cInsertColumnParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cToCSVParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cDropColumnParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cDropRowParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//Command:
-		//    Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn;
+		//    Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn
+		//Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Create
@@ -76,6 +77,9 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//DropColumn
 		public RuleCall getDropColumnParserRuleCall_6() { return cDropColumnParserRuleCall_6; }
+		
+		//DropRow
+		public RuleCall getDropRowParserRuleCall_7() { return cDropRowParserRuleCall_7; }
 	}
 	public class ContentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Content");
@@ -357,6 +361,41 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getColumnsSTRINGTerminalRuleCall_3_0() { return cColumnsSTRINGTerminalRuleCall_3_0; }
 	}
+	public class DropRowElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.DropRow");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDROPKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cROWKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cRowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRowsSTRINGTerminalRuleCall_3_0 = (RuleCall)cRowsAssignment_3.eContents().get(0);
+		
+		//DropRow:
+		//    'DROP' 'ROW' name=ID (rows+=STRING)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'DROP' 'ROW' name=ID (rows+=STRING)+
+		public Group getGroup() { return cGroup; }
+		
+		//'DROP'
+		public Keyword getDROPKeyword_0() { return cDROPKeyword_0; }
+		
+		//'ROW'
+		public Keyword getROWKeyword_1() { return cROWKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
+		//(rows+=STRING)+
+		public Assignment getRowsAssignment_3() { return cRowsAssignment_3; }
+		
+		//STRING
+		public RuleCall getRowsSTRINGTerminalRuleCall_3_0() { return cRowsSTRINGTerminalRuleCall_3_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -369,6 +408,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InsertColumnElements pInsertColumn;
 	private final ToCSVElements pToCSV;
 	private final DropColumnElements pDropColumn;
+	private final DropRowElements pDropRow;
 	
 	private final Grammar grammar;
 	
@@ -389,6 +429,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInsertColumn = new InsertColumnElements();
 		this.pToCSV = new ToCSVElements();
 		this.pDropColumn = new DropColumnElements();
+		this.pDropRow = new DropRowElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -429,7 +470,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Command:
-	//    Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn;
+	//    Create | Load | Print | Head | InsertColumn | ToCSV | DropColumn | DropRow;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}
@@ -516,6 +557,16 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getDropColumnRule() {
 		return getDropColumnAccess().getRule();
+	}
+	
+	//DropRow:
+	//    'DROP' 'ROW' name=ID (rows+=STRING)+;
+	public DropRowElements getDropRowAccess() {
+		return pDropRow;
+	}
+	
+	public ParserRule getDropRowRule() {
+		return getDropRowAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

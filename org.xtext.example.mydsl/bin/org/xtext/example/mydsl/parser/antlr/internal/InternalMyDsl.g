@@ -174,6 +174,15 @@ ruleCommand returns [EObject current=null]
 			$current = $this_DropColumn_6.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCommandAccess().getDropRowParserRuleCall_7());
+		}
+		this_DropRow_7=ruleDropRow
+		{
+			$current = $this_DropRow_7.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -658,6 +667,69 @@ ruleDropColumn returns [EObject current=null]
 						$current,
 						"columns",
 						lv_columns_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleDropRow
+entryRuleDropRow returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDropRowRule()); }
+	iv_ruleDropRow=ruleDropRow
+	{ $current=$iv_ruleDropRow.current; }
+	EOF;
+
+// Rule DropRow
+ruleDropRow returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='DROP'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDropRowAccess().getDROPKeyword_0());
+		}
+		otherlv_1='ROW'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDropRowAccess().getROWKeyword_1());
+		}
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getDropRowAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDropRowRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				lv_rows_3_0=RULE_STRING
+				{
+					newLeafNode(lv_rows_3_0, grammarAccess.getDropRowAccess().getRowsSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDropRowRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"rows",
+						lv_rows_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)

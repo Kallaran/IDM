@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Command;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.DropColumn;
+import org.xtext.example.mydsl.myDsl.DropRow;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -106,6 +107,14 @@ public class MyDslGenerator extends AbstractGenerator {
       if (_tripleEquals_6) {
         _matched=true;
         _switchResult = this.compile(((DropColumn) c));
+      }
+    }
+    if (!_matched) {
+      String _name_7 = c.eClass().getName();
+      boolean _tripleEquals_7 = (_name_7 == "DropRow");
+      if (_tripleEquals_7) {
+        _matched=true;
+        _switchResult = this.compile(((DropRow) c));
       }
     }
     if (!_matched) {
@@ -225,6 +234,26 @@ public class MyDslGenerator extends AbstractGenerator {
       _builder.append(_name);
       _builder.append(".drop(columns=[");
       _builder.append(colums);
+      _builder.append("], inplace=True)  ");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  private CharSequence compile(final DropRow i) {
+    CharSequence _xblockexpression = null;
+    {
+      String rows = "";
+      EList<String> _rows = i.getRows();
+      for (final String row : _rows) {
+        String _rows_1 = rows;
+        rows = (_rows_1 + (row + ", "));
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = i.getName();
+      _builder.append(_name);
+      _builder.append(".drop([");
+      _builder.append(rows);
       _builder.append("], inplace=True)  ");
       _xblockexpression = _builder;
     }

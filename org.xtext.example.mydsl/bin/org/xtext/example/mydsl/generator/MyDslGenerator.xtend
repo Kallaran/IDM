@@ -15,6 +15,7 @@ import org.xtext.example.mydsl.myDsl.Head
 import org.xtext.example.mydsl.myDsl.InsertColumn
 import org.xtext.example.mydsl.myDsl.ToCSV
 import org.xtext.example.mydsl.myDsl.DropColumn
+import org.xtext.example.mydsl.myDsl.DropRow
 
 /**
  * Generates code from your model files on save.
@@ -49,6 +50,8 @@ import pandas as pd
  			case c.eClass().name === "InsertColumn" : compile(c as InsertColumn)
   			case c.eClass().name === "ToCSV" : compile(c as ToCSV)
   			case c.eClass().name === "DropColumn" : compile(c as DropColumn)
+  			case c.eClass().name === "DropRow" : compile(c as DropRow)
+  			
   			
  			
  			default : "Error"
@@ -108,6 +111,15 @@ import pandas as pd
 			colums+= "'" + col + "', ";
 		}
     	'''«i.name».drop(columns=[«colums»], inplace=True)  '''
+    		
+    }
+    
+      private def compile(DropRow i) {
+    	var String rows = "";
+		for( row : i.rows){
+			rows+= row + ", ";
+		}
+    	'''«i.name».drop([«rows»], inplace=True)  '''
     		
     }
 

@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.myDsl.Command;
 import org.xtext.example.mydsl.myDsl.Content;
 import org.xtext.example.mydsl.myDsl.Create;
 import org.xtext.example.mydsl.myDsl.DropColumn;
+import org.xtext.example.mydsl.myDsl.DropRow;
 import org.xtext.example.mydsl.myDsl.Head;
 import org.xtext.example.mydsl.myDsl.InsertColumn;
 import org.xtext.example.mydsl.myDsl.Load;
@@ -100,6 +101,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass dropColumnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dropRowEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -445,6 +453,39 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getDropRow()
+  {
+    return dropRowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDropRow_Name()
+  {
+    return (EAttribute)dropRowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDropRow_Rows()
+  {
+    return (EAttribute)dropRowEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public MyDslFactory getMyDslFactory()
   {
     return (MyDslFactory)getEFactoryInstance();
@@ -504,6 +545,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     dropColumnEClass = createEClass(DROP_COLUMN);
     createEAttribute(dropColumnEClass, DROP_COLUMN__NAME);
     createEAttribute(dropColumnEClass, DROP_COLUMN__COLUMNS);
+
+    dropRowEClass = createEClass(DROP_ROW);
+    createEAttribute(dropRowEClass, DROP_ROW__NAME);
+    createEAttribute(dropRowEClass, DROP_ROW__ROWS);
   }
 
   /**
@@ -542,6 +587,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     insertColumnEClass.getESuperTypes().add(this.getCommand());
     toCSVEClass.getESuperTypes().add(this.getCommand());
     dropColumnEClass.getESuperTypes().add(this.getCommand());
+    dropRowEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -578,6 +624,10 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(dropColumnEClass, DropColumn.class, "DropColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDropColumn_Name(), ecorePackage.getEString(), "name", null, 0, 1, DropColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDropColumn_Columns(), ecorePackage.getEString(), "columns", null, 0, -1, DropColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dropRowEClass, DropRow.class, "DropRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDropRow_Name(), ecorePackage.getEString(), "name", null, 0, 1, DropRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDropRow_Rows(), ecorePackage.getEString(), "rows", null, 0, -1, DropRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
