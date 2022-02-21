@@ -80,7 +80,7 @@ import pandas as pd
 
 		'''
 		«c.path.name» = pd.DataFrame(«content», columns=[«colums»])
-		«c.path.name».to_csv('«c.path.name».csv', index=False)
+		«c.path.name».to_csv('«c.path.name»', index=False)
 		'''
 		
     }

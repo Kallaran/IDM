@@ -1280,9 +1280,9 @@ rule__Print__NameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

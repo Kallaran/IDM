@@ -2506,7 +2506,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
             // InternalMyDsl.g:837:1: ( rule__Print__Group__0__Impl rule__Print__Group__1 )
             // InternalMyDsl.g:838:2: rule__Print__Group__0__Impl rule__Print__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_7);
             rule__Print__Group__0__Impl();
 
             state._fsp--;
@@ -3749,21 +3749,21 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Print__NameAssignment_1"
-    // InternalMyDsl.g:1277:1: rule__Print__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalMyDsl.g:1277:1: rule__Print__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Print__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDsl.g:1281:1: ( ( RULE_ID ) )
-            // InternalMyDsl.g:1282:2: ( RULE_ID )
+            // InternalMyDsl.g:1281:1: ( ( RULE_STRING ) )
+            // InternalMyDsl.g:1282:2: ( RULE_STRING )
             {
-            // InternalMyDsl.g:1282:2: ( RULE_ID )
-            // InternalMyDsl.g:1283:3: RULE_ID
+            // InternalMyDsl.g:1282:2: ( RULE_STRING )
+            // InternalMyDsl.g:1283:3: RULE_STRING
             {
-             before(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0()); 
 
             }
 

@@ -222,23 +222,23 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPRINTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Print:
-		//    'PRINT' name=ID ;
+		//    'PRINT' name=STRING ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'PRINT' name=ID
+		//'PRINT' name=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'PRINT'
 		public Keyword getPRINTKeyword_0() { return cPRINTKeyword_0; }
 		
-		//name=ID
+		//name=STRING
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 	}
 	public class HeadElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Head");
@@ -455,7 +455,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Print:
-	//    'PRINT' name=ID ;
+	//    'PRINT' name=STRING ;
 	public PrintElements getPrintAccess() {
 		return pPrint;
 	}

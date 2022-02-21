@@ -164,7 +164,7 @@ public class MyDslGenerator extends AbstractGenerator {
       _builder.append(".to_csv(\'");
       String _name_2 = c.getPath().getName();
       _builder.append(_name_2);
-      _builder.append(".csv\', index=False)");
+      _builder.append("\', index=False)");
       _builder.newLineIfNotEmpty();
       _xblockexpression = _builder;
     }

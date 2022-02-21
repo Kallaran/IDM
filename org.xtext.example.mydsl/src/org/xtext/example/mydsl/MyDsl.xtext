@@ -24,7 +24,7 @@ Load:
 	'LOAD' name=ID '=' path=Type ;
 	
 Print:
-	'PRINT' name=ID ;
+	'PRINT' name=STRING ;
 
 Head:
 	'HEAD' name=ID ;

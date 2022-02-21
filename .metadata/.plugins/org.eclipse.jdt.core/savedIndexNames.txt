@@ -33,9 +33,7 @@ INDEX VERSION 1.131+C:\Users\jeand\eclipseIDM\.metadata\.plugins\org.eclipse.jdt
 322533595.index
 2875824123.index
 2444754427.index
-1798471498.index
 1295914889.index
-4173125163.index
 1865797976.index
 2246648336.index
 821195608.index
@@ -54,15 +52,12 @@ INDEX VERSION 1.131+C:\Users\jeand\eclipseIDM\.metadata\.plugins\org.eclipse.jdt
 1373212925.index
 1332341437.index
 991980582.index
-490669026.index
 3844451558.index
 3018848018.index
 3868782246.index
-2179665669.index
 3689223654.index
 2678977960.index
 3167518025.index
-22143572.index
 1283572771.index
 2910135629.index
 1976275622.index

@@ -178,7 +178,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Print returns Print
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     name=STRING
 	 */
 	protected void sequence_Print(ISerializationContext context, Print semanticObject) {
 		if (errorAcceptor != null) {
@@ -186,7 +186,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.PRINT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

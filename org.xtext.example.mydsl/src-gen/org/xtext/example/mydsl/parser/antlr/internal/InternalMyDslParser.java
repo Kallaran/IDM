@@ -1088,7 +1088,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrint"
-    // InternalMyDsl.g:433:1: rulePrint returns [EObject current=null] : (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // InternalMyDsl.g:433:1: rulePrint returns [EObject current=null] : (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject rulePrint() throws RecognitionException {
         EObject current = null;
 
@@ -1099,25 +1099,25 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyDsl.g:439:2: ( (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_ID ) ) ) )
-            // InternalMyDsl.g:440:2: (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalMyDsl.g:439:2: ( (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalMyDsl.g:440:2: (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalMyDsl.g:440:2: (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_ID ) ) )
-            // InternalMyDsl.g:441:3: otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_ID ) )
+            // InternalMyDsl.g:440:2: (otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalMyDsl.g:441:3: otherlv_0= 'PRINT' ( (lv_name_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_9); 
+            otherlv_0=(Token)match(input,17,FOLLOW_5); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPrintAccess().getPRINTKeyword_0());
             		
-            // InternalMyDsl.g:445:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalMyDsl.g:446:4: (lv_name_1_0= RULE_ID )
+            // InternalMyDsl.g:445:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalMyDsl.g:446:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalMyDsl.g:446:4: (lv_name_1_0= RULE_ID )
-            // InternalMyDsl.g:447:5: lv_name_1_0= RULE_ID
+            // InternalMyDsl.g:446:4: (lv_name_1_0= RULE_STRING )
+            // InternalMyDsl.g:447:5: lv_name_1_0= RULE_STRING
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getPrintAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getPrintAccess().getNameSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -1127,7 +1127,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             						current,
             						"name",
             						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
