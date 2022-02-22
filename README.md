@@ -112,7 +112,7 @@ GET ROW file "0"
 ```
 
 #### `GetColumn`
-Permet d'afficher une colunne dans un CSV chargé dans une variable en fonction du nom de la colonne.
+Permet d'afficher une colonne dans un CSV chargé dans une variable en fonction du nom de la colonne.
 ```
 GET COLUMN <nom_variable> "<col>"
 ```
