@@ -54,11 +54,11 @@ HEAD file
 #### `InsertColumn`
 Permet de rajouter une colonne à un CSV chargé dans une variable.
 ```
-INSERT COLUMN <nom_variable> "<nom_colonne>"
+INSERT COLUMN <nom_variable> "<nom_colonne>" "<col1>" "<col2>" ...
 ```
 Exemple :
 ```
-INSERT COLUMN file "maire"
+INSERT COLUMN file "maire" "Bertrand" "Bernard"
 ```
 
 #### `ToCSV`
@@ -89,4 +89,34 @@ DROP ROW <nom_variable> "<index_row1>" "<index_row2>" ...
 Exemple :
 ```
 DROP ROW file "0"
+```
+
+#### `InsertRow`
+Permet de rajouter une ligne à un CSV chargé dans une variable à la fin.
+```
+INSERT ROW <nom_variable> "<index_row1>" "<index_row2>" ...
+```
+Exemple :
+```
+INSERT ROW file "Brest" "321020"
+```
+
+#### `GetRow`
+Permet d'afficher une ligne dans un CSV chargé dans une variable en fonction de son index.
+```
+GET ROW <nom_variable> "<index_row>"
+```
+Exemple :
+```
+GET ROW file "0"
+```
+
+#### `GetColumn`
+Permet d'afficher une colunne dans un CSV chargé dans une variable en fonction du nom de la colonne.
+```
+GET COLUMN <nom_variable> "<col>"
+```
+Exemple :
+```
+GET COLUMN file "ville"
 ```
