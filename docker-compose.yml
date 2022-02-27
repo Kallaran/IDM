@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  compiler:
+    image: paulborielabs/compiler
+    volumes: 
+      - ./generated_code:/app/src-gen
+      - ./MYDSL_programs/:/app/progs # on rajoute les programmes dans le conteneur, mettre dans le dossier MYDSL_programs les nouveaux programmes
+    command: pro2.mydsl # On indique le programme à compiler ici (il doit être présent dans le conteneur)
+

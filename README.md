@@ -39,6 +39,18 @@ Ces exemples se trouvent dans le dossier "MYDSL_programs".
 
 [pro2.mydsl](MYDSL_programs/pro2.mydsl) : Ce programme récupère le fichier créé avec pro1.mydsl et lui retire une colonne avant de lui rajouter une ligne, enfin il retourne dans la sortie standard un message "Villes et maires :" ainsi que les 5 premières lignes du CSV.
 
+## Tester notre lanagage (avec Docker)
+
+Une image `Docker` est fournie pour pouvoir compiler un programme de notre langage. `docker run <abs_path>:/app/src-gen paulborielabs/compiler <nom du programme>`. Le code généré se trouvera dans le dossier indiqué à `<abs_path>` sur le système hôte. 
+
+```bash
+docker run -v ~/IDM/generated_code:/app/src-gen paulborielabs/compiler pro2.mydsl
+```
+Un `docker-compose` est également fourni. Encore une fois le code généré se trouvera dans le dossier `generated_code`. Pour rajouter des programmes il faut qu'ils soient montés dans le conteneur à son démarage, le `docker-compose` permet cela car il monte tous les programmes dans le dossier `MYDSL_programs` dans le conteneur. Il faudra donc placer les nouveaux programmes dans ce dossier.
+
+```bash
+docker-compose up
+```
 
 
 ## Documentation de notre langage 
