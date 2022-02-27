@@ -1,17 +1,17 @@
 # IDM
 
-## Notre métamodèle :
+## Notre métamodèle 
 
 ![myDsl_class_diagram.jpg](myDsl_class_diagram.jpg)
 
 [Fichier .ecore](org.xtext.example.mydsl/model/generated/MyDsl.ecore)
 
 
-## Notre grammaire :
+## Notre grammaire 
 
 [MyDsl.xtext](org.xtext.example.mydsl/src/org/xtext/example/mydsl/MyDsl.xtext)
 
-## Les compilateurs :
+## Les compilateurs 
 
 Vers Python : [PythonGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/PythonGenerator.xtend)
 
@@ -31,7 +31,17 @@ Ici le compilateur vers Python sera utilisé.
 Ces lignes se trouvent dans le fichier : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/MyDslGenerator.xtend)
 
 
-## Documentation de notre langage
+## Quelques exemples de programmes réalisés avec notre langage 
+
+Ces exemples se trouvent dans le dossier "MYDSL_programs".
+
+[pro1.mydsl](MYDSL_programs/pro1.mydsl) : Ce programme permet de créer un fichier CSV et de lui rajouter une colonne.
+
+[pro2.mydsl](MYDSL_programs/pro2.mydsl) : Ce programme récupère le fichier créé avec pro1.mydsl et lui retire une colonne avant de lui rajouter une ligne, enfin il retourne dans la sortie standard un message "Villes et maires :" ainsi que les 5 premières lignes du CSV.
+
+
+
+## Documentation de notre langage 
 
 Notre langage est constitué d'un ensemble de commandes qu'il suffit d'utiliser dans un ordre cohérent.
 
