@@ -1,12 +1,19 @@
 # IDM
 
+## Notre métamodèle :
+
+[myDsl_class_diagram.jpg](myDsl_class_diagram.jpg)
+
+[Fichier .ecore](org.xtext.example.mydsl/model/generated/MyDsl.ecore)
+
+
 ## Notre grammaire :
 
-[MyDsl.xtext](org.xtext.example.mydsl/bin/org/xtext/example/mydsl/MyDsl.xtext)
+[MyDsl.xtext](org.xtext.example.mydsl/src/org/xtext/example/mydsl/MyDsl.xtext)
 
 ## Le compilateur vers python
 
-[MyDslGenerator.xtend](org.xtext.example.mydsl/bin/org/xtext/example/mydsl/generator/MyDslGenerator.xtend)
+[MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/MyDslGenerator.xtend)
 
 ## Documentation de notre langage
 
