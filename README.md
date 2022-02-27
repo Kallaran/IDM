@@ -3,6 +3,8 @@
 ## Notre métamodèle :
 
 [myDsl_class_diagram.jpg](myDsl_class_diagram.jpg)
+[Fichier .ecore](org.xtext.example.mydsl/model/generated/MyDsl.ecore)
+
 
 ## Notre grammaire :
 
