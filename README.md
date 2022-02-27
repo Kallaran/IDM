@@ -11,9 +11,25 @@
 
 [MyDsl.xtext](org.xtext.example.mydsl/src/org/xtext/example/mydsl/MyDsl.xtext)
 
-## Le compilateur vers python
+## Les compilateurs :
 
-[MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/MyDslGenerator.xtend)
+Vers Python : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/PythonGenerator.xtend)
+
+Vers Java : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/JavaGenerator.xtend)
+
+Pour choisir quel compilateur utiliser il faut commenter/décommenter les lignes suivantes :
+
+```
+//Python Generator
+p.generate (resource, fsa,  context); 
+		
+//Java Generator
+//j.generate (resource, fsa,  context);
+```
+Ici le compilateur vers Python sera utilisé.
+
+Ces lignes se trouvent dans le fichier : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/MyDslGenerator.xtend)
+
 
 ## Documentation de notre langage
 
