@@ -13,9 +13,9 @@
 
 ## Les compilateurs :
 
-Vers Python : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/PythonGenerator.xtend)
+Vers Python : [PythonGenerator .xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/PythonGenerator.xtend)
 
-Vers Java : [MyDslGenerator.xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/JavaGenerator.xtend)
+Vers Java : [JavaGenerator .xtend](org.xtext.example.mydsl/src/org/xtext/example/mydsl/generator/JavaGenerator.xtend)
 
 Pour choisir quel compilateur utiliser il faut commenter/décommenter les lignes suivantes :
 
