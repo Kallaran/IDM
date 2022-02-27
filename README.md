@@ -54,11 +54,11 @@ HEAD file
 #### `InsertColumn`
 Permet de rajouter une colonne à un CSV chargé dans une variable.
 ```
-INSERT COLUMN <nom_variable> "<nom_colonne>" "<col1>" "<col2>" ...
+INSERT COLUMN <nom_variable> "<nom_colonne>" : "<col1>" "<col2>" ...
 ```
 Exemple :
 ```
-INSERT COLUMN file "maire" "Bertrand" "Bernard"
+INSERT COLUMN file "maire" : "Bertrand" "Bernard"
 ```
 
 #### `ToCSV`
