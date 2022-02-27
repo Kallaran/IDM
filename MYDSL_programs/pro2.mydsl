@@ -1,0 +1,6 @@
+LOAD file = "villes.csv"
+DROP COLUMN file "population"
+INSERT ROW file "Brest" "Pascal"
+TO CSV file "villes.csv"
+PRINT "Villes et maires :"
+HEAD file

@@ -1,0 +1,4 @@
+CREATE "villes" : ["ville" "population" ] : [["rennes" "65623444"]["lyon" "5223331"]]
+LOAD file = "villes.csv"
+INSERT COLUMN file "maire" : "Bertrand" "Bernard"
+TO CSV file "villes.csv"
